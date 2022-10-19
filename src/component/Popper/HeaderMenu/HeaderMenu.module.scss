@@ -1,0 +1,38 @@
+.content {
+    width: 224px;
+}
+
+.menu-popper {
+    padding-bottom: 4px;
+}
+
+.menu-list {
+    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 8px 0px;
+    margin: 0px;
+    list-style: none;
+
+    .menu-item {
+        margin: 0;
+    }
+}
+
+.menu-item {
+    padding: 10px 8px 10px 16px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 0;
+    font-weight: 600;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
+}
+
+.title-wrapper {
+    line-height: 22px;
+}
