@@ -17,6 +17,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 var(--default-layout-horizontal-spacer);
 }
 
 .header-logo {
@@ -123,10 +124,29 @@
     overflow: hidden;
 }
 
+.action {
+    display: flex;
+    align-items: center;
+}
+
+.action-btn {
+    background-color: transparent;
+    font-size: 2.2rem;
+    padding: 3px;
+    margin-left: 16px;
+    cursor: pointer;
+}
+
+.current-user-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .more-btn {
     font-size: 2rem;
     margin-left: 24px;
     background-color: transparent;
+    width: 32px;
 }
 
 .menu-items {
@@ -138,4 +158,9 @@
     cursor: pointer;
     background-color: #fff;
     border: none;
+}
+
+.avatar-btn {
+    width: 52px;
+    height: 52px;
 }

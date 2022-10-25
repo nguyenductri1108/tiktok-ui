@@ -31,6 +31,10 @@
         background-color: rgba(22, 24, 35, 0.03);
         cursor: pointer;
     }
+
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
 }
 
 .title-wrapper {

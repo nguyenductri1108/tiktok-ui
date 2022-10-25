@@ -1,0 +1,22 @@
+.header-language-menu {
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+}
+
+.back-btn {
+    background-color: transparent;
+    height: 100%;
+    width: 50px;
+    cursor: pointer;
+    .icon {
+        transform: translateX(50%);
+    }
+}
+
+.title-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

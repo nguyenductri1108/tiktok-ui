@@ -1,5 +1,6 @@
+import { keys } from '@mui/system';
 import classNames from 'classnames/bind';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 
 import styles from './Button.module.scss';
 
@@ -40,9 +41,8 @@ function Button({
     if (to) {
         props.to = to;
         Comp = Link;
-        console.log(title);
     } else if (href) {
-        // console.log(href);
+        console.log(children);
         props.href = href;
         Comp = 'a';
     }
@@ -52,9 +52,10 @@ function Button({
         <Comp
             className={classes}
             {...props}
-            onClick={(e) => {
-                e.preventDefault();
-            }}
+            // onClick={(e) => {
+            //     e.preventDefault();
+            //     navigate(`/upload`);
+            // }}
         >
             {leftIcon && <span className={cx('left-icon-btn')}>{leftIcon}</span>}
             <span className={cx('btn-title')}>{children}</span>
