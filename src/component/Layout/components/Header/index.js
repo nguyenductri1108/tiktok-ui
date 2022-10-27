@@ -27,12 +27,12 @@ import AccountItem from '~/component/AccountItem';
 import Button from '~/component/Button';
 import tippy, { roundArrow } from 'tippy.js';
 import HeaderMenu from '~/component/Popper/HeaderMenu';
-import { Avatar } from '@mui/material';
 import 'tippy.js/dist/tippy.css';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import SettingsIcon from '@mui/icons-material/Settings';
+import CustomAvatar from '~/component/Images/Avatar';
 
 const cx = classNames.bind(styles);
 
@@ -174,7 +174,7 @@ function Header() {
                     </Button>
                     {currentUser ? (
                         <div className="current-user-wrapper">
-                            <Tippy trigger="click" delay={[0, 0]} content="Message">
+                            <Tippy delay={[0, 0]} content="Message">
                                 <button className={cx('action-btn')}>
                                     <span className={cx('message')}>
                                         <SendIcon fontSize="large" />
@@ -206,11 +206,11 @@ function Header() {
                     >
                         {currentUser ? (
                             // <div className={cx('avatar-btn')}>
-                            <Avatar
+                            <CustomAvatar
                                 className={cx('more-btn')}
                                 sx={{ width: '32px', height: '32px', marginLeft: '24px', cursor: 'pointer' }}
-                                alt="avatar"
-                                src="https://p16-sign-va.tiktokcdn.com/musically-maliva-obj/1653272836951046~c5_100x100.jpeg?x-expires=1666789200&x-signature=2B7uOSc17cDMXlkBli%2FPNR3SsPs%3D"
+                                // alt="avatar"
+                                src="https://p16-sign-va.tiktokcdn.comm/musically-maliva-obj/1653272836951046~c5_100x100.jpeg?x-expires=1666789200&x-signature=2B7uOSc17cDMXlkBli%2FPNR3SsPs%3D"
                             />
                         ) : (
                             // </div>

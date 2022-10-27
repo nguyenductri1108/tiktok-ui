@@ -18,13 +18,11 @@ function HeaderMenu({ children, item, onChange = defaultFn, loggedIn }) {
     const current = history[history.length - 1];
 
     console.log(loggedIn);
-
     return (
         <Tippy
             arrow={roundArrow}
             zIndex="999"
             theme="dark"
-            trigger="click"
             interactive
             delay={[0, 700]}
             placement="bottom-end"
