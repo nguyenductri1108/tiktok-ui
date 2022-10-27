@@ -1,13 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
-    faCircleXmark,
     faEarthAsia,
     faEllipsisVertical,
     faKeyboard,
-    faMagnifyingGlass,
     faPlus,
-    faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
@@ -17,13 +14,10 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 
 import { useEffect, useState } from 'react';
 
-import { Wrapper as PopperWrapper } from '~/component/Popper';
-import AccountItem from '~/component/AccountItem';
 import Button from '~/component/Button';
 import tippy, { roundArrow } from 'tippy.js';
 import HeaderMenu from '~/component/Popper/HeaderMenu';
@@ -33,6 +27,7 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CustomAvatar from '~/component/Images/Avatar';
+import HeaderSearch from '~/component/Layout/components/Search';
 
 const cx = classNames.bind(styles);
 
@@ -40,7 +35,6 @@ const currentUser = true;
 
 function Header() {
     const [result, setResult] = useState([]);
-    const [searchinput, setSearchInput] = useState('');
 
     const MENU_ITEM = [
         {
@@ -128,45 +122,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <img src={images.logo} alt="tiktok"></img>
-                <div className={cx('header-search')} spellCheck={false}>
-                    <HeadlessTippy
-                        placement="bottom-start"
-                        trigger="focus"
-                        interactive={true}
-                        // visible={result.length > 0}
-                        render={(attrs) => (
-                            <PopperWrapper>
-                                <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                                    <h4 className={cx('search-header')}>Accounts</h4>
-                                    <ul className={cx('search-list-account')}>
-                                        <AccountItem />
-                                        <AccountItem />
-                                        <AccountItem />
-                                        <AccountItem />
-                                    </ul>
-                                    <p className={cx('search-note')}>View all results for "{searchinput}" </p>
-                                </div>
-                            </PopperWrapper>
-                        )}
-                    >
-                        <input
-                            placeholder="Search accounts and videos"
-                            spellCheck={false}
-                            value={searchinput}
-                            onChange={(e) => {
-                                setSearchInput(e.target.value);
-                            }}
-                        />
-                    </HeadlessTippy>
-                    <button className={cx('clear')}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
-                    <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-
-                    <button className={cx('search-btn')}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
-                </div>
+                <HeaderSearch />
 
                 <div className={cx('action')}>
                     <Button leftIcon={<FontAwesomeIcon icon={faPlus} />} text size="medium">
@@ -205,11 +161,9 @@ function Header() {
                         }}
                     >
                         {currentUser ? (
-                            // <div className={cx('avatar-btn')}>
                             <CustomAvatar
                                 className={cx('more-btn')}
                                 sx={{ width: '32px', height: '32px', marginLeft: '24px', cursor: 'pointer' }}
-                                // alt="avatar"
                                 src="https://p16-sign-va.tiktokcdn.comm/musically-maliva-obj/1653272836951046~c5_100x100.jpeg?x-expires=1666789200&x-signature=2B7uOSc17cDMXlkBli%2FPNR3SsPs%3D"
                             />
                         ) : (
