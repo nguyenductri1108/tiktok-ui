@@ -133,7 +133,7 @@ function Header() {
                         placement="bottom-start"
                         trigger="focus"
                         interactive={true}
-                        // visible={result.length > 0}
+                        visible={result.length > 0}
                         render={(attrs) => (
                             <PopperWrapper>
                                 <div className={cx('search-result')} tabIndex="-1" {...attrs}>
