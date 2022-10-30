@@ -8,6 +8,7 @@ import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-s
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDebounce } from '~/hooks';
 import axios from 'axios';
+import * as searchService from '~/apiService/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -23,21 +24,16 @@ function HeaderSearch() {
 
     useEffect(() => {
         if (!!searchinput) {
-            setLoading(true);
-            axios
-                .get(`https://tiktok.fullstack.edu.vn/api/users/search`, {
-                    params: {
-                        q: debounce,
-                        type: 'less',
-                    },
-                })
-                .then((res) => {
-                    setResult(res.data.data);
-                    setLoading(false);
-                })
-                .catch(() => {
-                    setLoading(false);
-                });
+            const fetchApi = async () => {
+                setLoading(true);
+
+                const result = await searchService.search(debounce);
+                setResult(result);
+
+                setLoading(false);
+            };
+
+            fetchApi();
         }
     }, [debounce]);
 
