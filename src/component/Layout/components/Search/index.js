@@ -6,6 +6,7 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import { useState, useEffect, useRef } from 'react';
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +17,8 @@ function HeaderSearch() {
     const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
+
+    const debounce = useDebounce(searchinput, 500);
 
     useEffect(() => {
         if (!!searchinput) {
@@ -31,7 +34,7 @@ function HeaderSearch() {
                     setLoading(false);
                 });
         }
-    }, [searchinput]);
+    }, [debounce]);
 
     function clearSearchInput() {
         setSearchInput((prev) => '');
