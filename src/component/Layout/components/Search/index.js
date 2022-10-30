@@ -13,16 +13,24 @@ function HeaderSearch() {
     const [searchinput, setSearchInput] = useState('');
     const [result, setResult] = useState([]);
     const [focusInput, setFocusInput] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${searchinput}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setResult(res.data);
-                console.log(res.data);
-            });
+        if (!!searchinput) {
+            setLoading(true);
+            fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchinput)}&type=less`)
+                .then((res) => res.json())
+                .then((res) => {
+                    setResult(res.data);
+                    console.log(res.data);
+                    setLoading(false);
+                })
+                .catch(() => {
+                    setLoading(false);
+                });
+        }
     }, [searchinput]);
 
     function clearSearchInput() {
@@ -69,13 +77,13 @@ function HeaderSearch() {
                         setFocusInput(true);
                     }}
                 />
-                {!!searchinput && (
+                {!!searchinput && !loading && (
                     <button onClick={clearSearchInput} className={cx('clear')}>
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </button>
                 )}
 
-                {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
                 <button className={cx('search-btn')}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
