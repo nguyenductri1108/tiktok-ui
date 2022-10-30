@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDebounce } from '~/hooks';
+import axios from 'axios';
 
 const cx = classNames.bind(styles);
 
@@ -23,11 +24,15 @@ function HeaderSearch() {
     useEffect(() => {
         if (!!searchinput) {
             setLoading(true);
-            fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchinput)}&type=less`)
-                .then((res) => res.json())
+            axios
+                .get(`https://tiktok.fullstack.edu.vn/api/users/search`, {
+                    params: {
+                        q: debounce,
+                        type: 'less',
+                    },
+                })
                 .then((res) => {
-                    setResult(res.data);
-                    console.log(res.data);
+                    setResult(res.data.data);
                     setLoading(false);
                 })
                 .catch(() => {
