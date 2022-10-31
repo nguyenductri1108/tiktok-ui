@@ -64,6 +64,7 @@ function HeaderSearch() {
 
     return (
         <HeadlessTippy
+            appendTo={() => document.body}
             placement="bottom-start"
             interactive={true}
             visible={!!searchinput && focusInput && result.length > 0}

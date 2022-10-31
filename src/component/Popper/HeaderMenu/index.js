@@ -13,13 +13,15 @@ const cx = classNames.bind(styles);
 
 const defaultFn = () => {};
 
-function HeaderMenu({ children, hideOnClick, item, onChange = defaultFn, loggedIn }) {
+function HeaderMenu({ children, hideOnClick, item, onChange = defaultFn, loggedIn, ...passProps }) {
     const [history, setHistory] = useState([{ data: item }]);
     const current = history[history.length - 1];
 
     console.log(loggedIn);
     return (
         <Tippy
+            {...passProps}
+            visible={true}
             arrow={roundArrow}
             zIndex="999"
             theme="dark"
