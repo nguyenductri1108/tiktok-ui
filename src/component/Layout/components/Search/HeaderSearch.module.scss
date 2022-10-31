@@ -7,7 +7,8 @@
     padding-left: 16px;
     display: flex;
     position: relative;
-    border: 1.5px solid transparent;
+    border: 1.5px solid;
+    border-color: transparent;
     input {
         flex: 1;
         height: 100%;
@@ -17,6 +18,7 @@
         color: var(--black);
         outline: none;
         caret-color: var(--primary);
+        font-family: var(--font-family);
     }
 
     input:not(:placeholder-shown) ~ .search-btn {
@@ -108,7 +110,7 @@
 
 .search-note {
     padding: 15px 16px;
-    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-family: var(--font-family);
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;

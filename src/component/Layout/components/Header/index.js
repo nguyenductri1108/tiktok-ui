@@ -28,6 +28,7 @@ import VideoCallIcon from '@mui/icons-material/VideoCall';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CustomAvatar from '~/component/Images/Avatar';
 import HeaderSearch from '~/component/Layout/components/Search';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
@@ -41,6 +42,32 @@ function Header() {
             children: {
                 title: 'Language',
                 data: [
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
+                    { code: 'vi', title: 'Tiếng Việt' },
+                    { code: 'en', title: 'English' },
                     { code: 'vi', title: 'Tiếng Việt' },
                     { code: 'en', title: 'English' },
                 ],
@@ -113,7 +140,10 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="tiktok"></img>
+                <Link to={'/'}>
+                    <img src={images.logo} alt="tiktok"></img>
+                </Link>
+
                 <HeaderSearch />
 
                 <div className={cx('action')}>
@@ -146,6 +176,7 @@ function Header() {
                     )}
 
                     <HeaderMenu
+                        hideOnClick={false}
                         loggedIn={currentUser}
                         item={currentUser ? userMenu : MENU_ITEM}
                         onChange={(item) => {

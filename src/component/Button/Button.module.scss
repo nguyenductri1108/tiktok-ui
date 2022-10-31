@@ -10,7 +10,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: 'ProximaNova', sans-serif;
+    font-family: var(--font-family);
 
     + .wrapper {
         margin-left: 8px;

@@ -47,10 +47,24 @@ function HeaderSearch() {
         setFocusInput(false);
     }
 
+    function handleTypeInput(e) {
+        const searchValue = e.target.value;
+        if (searchinput.length === 0 && searchValue.startsWith(' ')) {
+            return;
+        }
+
+        setSearchInput(e.target.value);
+    }
+
+    function handleSubmit() {
+        if (searchinput.length === 0) {
+            return;
+        }
+    }
+
     return (
         <HeadlessTippy
             placement="bottom-start"
-            trigger="focus"
             interactive={true}
             visible={!!searchinput && focusInput && result.length > 0}
             render={(attrs) => (
@@ -75,7 +89,7 @@ function HeaderSearch() {
                     spellCheck={false}
                     value={searchinput}
                     onChange={(e) => {
-                        setSearchInput(e.target.value);
+                        handleTypeInput(e);
                     }}
                     onFocus={() => {
                         setFocusInput(true);
@@ -89,7 +103,13 @@ function HeaderSearch() {
 
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
-                <button className={cx('search-btn')}>
+                <button
+                    className={cx('search-btn')}
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                    }}
+                    onClick={handleSubmit}
+                >
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
             </div>

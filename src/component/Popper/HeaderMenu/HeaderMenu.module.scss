@@ -1,5 +1,7 @@
 .content {
     width: 224px;
+    max-height: 640px;
+    overflow: scroll;
 }
 
 .menu-popper {
@@ -7,7 +9,7 @@
 }
 
 .menu-list {
-    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-family: var(--font-family);
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
