@@ -7,8 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useDebounce } from '~/hooks';
-import axios from 'axios';
-import * as searchService from '~/apiService/searchService';
+import * as searchService from '~/service/searchService';
 
 const cx = classNames.bind(styles);
 

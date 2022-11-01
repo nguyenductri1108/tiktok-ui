@@ -27,8 +27,9 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CustomAvatar from '~/component/Images/Avatar';
-import HeaderSearch from '~/component/Layout/components/Search';
+import HeaderSearch from '~/layouts/components/Search';
 import { Link } from 'react-router-dom';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -114,7 +115,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={'/'}>
+                <Link to={config.publicRoutes.home}>
                     <img src={images.logo} alt="tiktok"></img>
                 </Link>
 
