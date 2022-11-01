@@ -4,6 +4,7 @@ import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 function AccountItem({ itemData }) {
@@ -20,5 +21,9 @@ function AccountItem({ itemData }) {
         </Link>
     );
 }
+
+AccountItem.propTypes = {
+    itemData: PropTypes.object,
+};
 
 export default AccountItem;

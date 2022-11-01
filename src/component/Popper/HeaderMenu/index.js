@@ -21,7 +21,6 @@ function HeaderMenu({ children, hideOnClick, item, onChange = defaultFn, loggedI
     return (
         <Tippy
             {...passProps}
-            visible={true}
             arrow={roundArrow}
             zIndex="999"
             theme="dark"
