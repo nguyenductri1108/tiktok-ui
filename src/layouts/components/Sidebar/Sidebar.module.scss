@@ -1,5 +1,5 @@
 .wrapper {
-    width: 356px;
+    width: var(--sidebar-height);
     min-height: 1000px;
-    background-color: #ccc;
+    padding-left: 12px;
 }

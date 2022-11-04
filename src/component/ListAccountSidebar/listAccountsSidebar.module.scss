@@ -1,0 +1,24 @@
+.wrapper {
+    position: relative;
+    padding: 16px 0;
+    &:before {
+        display: block;
+        content: '';
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        top: 0;
+        height: 1px;
+        background: rgba(22, 24, 35, 0.12);
+    }
+}
+
+.heading {
+    color: rgba(22, 24, 35, 0.75);
+    padding: 0 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    margin-left: 6px;
+}

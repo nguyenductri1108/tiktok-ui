@@ -4,4 +4,5 @@ export const publicRoutes = {
     upload: '/upload',
     search: '/search',
     profile: '/@:nickname',
+    live: '/live',
 };

@@ -14,6 +14,7 @@ const publicRoutes = [
     { path: config.publicRoutes.upload, component: Upload, layout: HeaderOnly },
     { path: config.publicRoutes.search, component: Search, layout: null },
     { path: config.publicRoutes.profile, component: Search, layout: HeaderOnly },
+    { path: config.publicRoutes.live, component: Following },
 ];
 
 const privateRoutes = {};

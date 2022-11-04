@@ -17,7 +17,6 @@ function HeaderMenu({ children, hideOnClick, item, onChange = defaultFn, loggedI
     const [history, setHistory] = useState([{ data: item }]);
     const current = history[history.length - 1];
 
-    console.log(loggedIn);
     return (
         <Tippy
             {...passProps}

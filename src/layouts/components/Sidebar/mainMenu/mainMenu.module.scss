@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 8px;
 }
 
 .item-title {
@@ -26,5 +27,16 @@
 
     &.active {
         color: var(--primary);
+
+        .icon {
+            display: none;
+        }
+        .active-icon {
+            display: block;
+        }
     }
+}
+
+.active-icon {
+    display: none;
 }
