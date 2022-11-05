@@ -2,14 +2,106 @@ import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
 import config from '~/config';
 
-import { sidebarIcon } from '~/assets/iconSVG';
+import { discoverIcon, sidebarIcon } from '~/assets/iconSVG';
 import { MenuItem, MainMenu } from './mainMenu';
 import ListAccountsSidebar from '~/component/ListAccountSidebar';
 import LoginRec from './loginRecommend';
+import Discover from './discover/discover';
 
 const cx = classNames.bind(styles);
 
 const loggedIn = false;
+
+const SuggestedAccount = [
+    {
+        nickname: 'tri',
+        avatar: 'dsa',
+        tick: true,
+        full_name: 'trind',
+    },
+    {
+        nickname: 'tri',
+        avatar: 'dsa',
+        tick: true,
+        full_name: 'trind',
+    },
+    {
+        nickname: 'tri',
+        avatar: 'dsa',
+        tick: true,
+        full_name: 'trind',
+    },
+    {
+        nickname: 'tri',
+        avatar: 'dsa',
+        tick: true,
+        full_name: 'trind',
+    },
+];
+
+const FollowingAccount = [
+    {
+        nickname: 'tri',
+        avatar: 'dsa',
+        tick: true,
+        full_name: 'trind',
+    },
+    {
+        nickname: 'tri',
+        avatar: 'dsa',
+        tick: true,
+        full_name: 'trind',
+    },
+    {
+        nickname: 'tri',
+        avatar: 'dsa',
+        tick: true,
+        full_name: 'trind',
+    },
+];
+
+const DiscoverAccount = [
+    {
+        title: 'suthatla',
+        icon: discoverIcon.hashtag,
+    },
+    {
+        title: 'mackedoi',
+        icon: discoverIcon.hashtag,
+    },
+    {
+        title: 'sansangthaydoi',
+        icon: discoverIcon.hashtag,
+    },
+    {
+        title: 'Về Nghe Mẹ Ru - NSND Bach Tuyet & Hứa Kim Tuyền & 14 Casper & Hoàng Dũng',
+        icon: discoverIcon.music,
+    },
+    {
+        title: 'Yêu Đơn Phương Là Gì (MEE Remix) - Mee Media & h0n',
+        icon: discoverIcon.music,
+    },
+    {
+        title: 'Thiên Thần Tình Yêu - RICKY STAR',
+        icon: discoverIcon.music,
+    },
+    {
+        title: '7749hieuung',
+        icon: discoverIcon.hashtag,
+    },
+    {
+        title: 'genzlife',
+        icon: discoverIcon.hashtag,
+    },
+    {
+        title: 'Tình Đã Đầy Một Tim - Huyền Tâm Môn',
+        icon: discoverIcon.music,
+    },
+    {
+        title: '<p class="tiktok-e841qv-PText eikhr9j12">Thằng Hầu (Thái Hoàng Remix) [Short Version] - Dunghoangpham</p>',
+        icon: discoverIcon.music,
+    },
+];
 
 function Sidebar() {
     return (
@@ -37,61 +129,11 @@ function Sidebar() {
 
             {!loggedIn && <LoginRec></LoginRec>}
 
-            <ListAccountsSidebar
-                heading="Suggested Account"
-                data={[
-                    {
-                        nickname: 'tri',
-                        avatar: 'dsa',
-                        tick: true,
-                        full_name: 'trind',
-                    },
-                    {
-                        nickname: 'tri',
-                        avatar: 'dsa',
-                        tick: true,
-                        full_name: 'trind',
-                    },
-                    {
-                        nickname: 'tri',
-                        avatar: 'dsa',
-                        tick: true,
-                        full_name: 'trind',
-                    },
-                    {
-                        nickname: 'tri',
-                        avatar: 'dsa',
-                        tick: true,
-                        full_name: 'trind',
-                    },
-                ]}
-            />
+            <ListAccountsSidebar heading="Suggested Account" data={SuggestedAccount} />
 
-            {loggedIn && (
-                <ListAccountsSidebar
-                    heading="Following"
-                    data={[
-                        {
-                            nickname: 'tri',
-                            avatar: 'dsa',
-                            tick: true,
-                            full_name: 'trind',
-                        },
-                        {
-                            nickname: 'tri',
-                            avatar: 'dsa',
-                            tick: true,
-                            full_name: 'trind',
-                        },
-                        {
-                            nickname: 'tri',
-                            avatar: 'dsa',
-                            tick: true,
-                            full_name: 'trind',
-                        },
-                    ]}
-                />
-            )}
+            {loggedIn && <ListAccountsSidebar heading="Following" data={FollowingAccount} />}
+
+            <Discover data={DiscoverAccount}></Discover>
         </aside>
     );
 }
