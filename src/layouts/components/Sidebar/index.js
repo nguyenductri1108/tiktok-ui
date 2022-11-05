@@ -99,7 +99,7 @@ const DiscoverAccount = [
         icon: discoverIcon.music,
     },
     {
-        title: '<p class="tiktok-e841qv-PText eikhr9j12">Thằng Hầu (Thái Hoàng Remix) [Short Version] - Dunghoangpham</p>',
+        title: 'Thằng Hầu (Thái Hoàng Remix) [Short Version] - Dunghoangpham</p>',
         icon: discoverIcon.music,
     },
 ];
@@ -107,8 +107,8 @@ const DiscoverAccount = [
 const FooterData = [
     ['About', 'Newsroom', 'Contact', 'Careers', 'ByteDance'],
     ['TikTok for Good', 'Advertise', 'Developers', 'Transparency', 'TikTok Rewards', 'TikTok Browse', 'TikTok Embeds'],
-    [],
-    [],
+    ['Help', 'Safety', 'Terms', 'Privacy', 'Creator Portal', 'Community Guidelines'],
+    ['© 2022 TikTok'],
 ];
 
 function Sidebar() {
@@ -143,6 +143,8 @@ function Sidebar() {
                 {loggedIn && <ListAccountsSidebar heading="Following" data={FollowingAccount} />}
 
                 <Discover data={DiscoverAccount}></Discover>
+
+                <div className={cx('spacer')}></div>
 
                 <Footer data={FooterData}></Footer>
             </aside>

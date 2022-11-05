@@ -1,0 +1,54 @@
+.wrapper {
+    width: 100%;
+    color: #fff;
+    background: #000;
+    padding-bottom: 24px;
+    margin-top: 200px;
+}
+
+.footer-container {
+    margin: auto;
+    width: 1150px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
+.brand {
+    margin-top: 10px;
+    margin-left: 4px;
+    margin-right: -4px;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-col {
+    font-family: 'ProximaNova', sans-serif;
+}
+
+.col-item {
+    color: #ccc;
+    display: inline;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 28px;
+    display: block;
+    text-align: left;
+    font-family: 'ProximaNova', sans-serif;
+}
+
+.col-title {
+    font-size: 14px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.language {
+    display: inline-block;
+    background-color: #ccc;
+    font-size: 18px;
+}

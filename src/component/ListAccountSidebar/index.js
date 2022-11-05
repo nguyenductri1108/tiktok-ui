@@ -8,7 +8,7 @@ function ListAccountsSidebar({ heading, data }) {
     return (
         <div className={cx('wrapper')}>
             <h4 className={cx('heading')}>{heading}</h4>
-            {data.map((item) => {
+            {data.map((item, index) => {
                 const dataItem = {
                     nickname: item.nickname,
                     avatar: item.avatar,
@@ -18,6 +18,7 @@ function ListAccountsSidebar({ heading, data }) {
 
                 return (
                     <Account
+                        key={index}
                         itemData={{
                             nickname: 'tri',
                             avatar: 'abc',

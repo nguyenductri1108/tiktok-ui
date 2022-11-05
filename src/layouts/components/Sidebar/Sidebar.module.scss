@@ -1,5 +1,33 @@
+.container {
+    position: relative;
+    width: 356px;
+    -webkit-flex: 0 0 356px;
+    -ms-flex: 0 0 356px;
+    flex: 0 0 356px;
+}
+
+.spacer {
+    flex: 1 1 0px;
+}
+
 .wrapper {
     width: var(--sidebar-height);
-    min-height: 1000px;
+    // min-height: 1000px;
     padding-left: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    padding-right: 12px;
+    perspective-origin: right top;
+    top: 60px;
+    bottom: 0;
+    width: 356px;
+    background: rgba(255, 255, 255, 1);
+    position: fixed;
+    z-index: 99;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: column;
 }

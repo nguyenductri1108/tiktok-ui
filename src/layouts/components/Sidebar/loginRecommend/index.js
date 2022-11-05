@@ -8,7 +8,7 @@ function LoginRec() {
     return (
         <div className={cx('wrapper')}>
             <h4 className={cx('title')}>Log in to follow creators, like videos, and view comments.</h4>
-            <Button className={cx('button')} to="/login" outline large>
+            <Button className={cx('button')} to="/login" outline size="large">
                 Log in
             </Button>
         </div>

@@ -108,10 +108,6 @@ function Header() {
         },
     ];
 
-    tippy('.testTippy', {
-        content: "I'm a Tippy tooltip!",
-    });
-
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -122,7 +118,7 @@ function Header() {
                 <HeaderSearch />
 
                 <div className={cx('action')}>
-                    <Button leftIcon={<FontAwesomeIcon icon={faPlus} />} text size="medium">
+                    <Button to="/upload" leftIcon={<FontAwesomeIcon icon={faPlus} />} text size="medium">
                         Upload
                     </Button>
                     {currentUser ? (
@@ -143,11 +139,9 @@ function Header() {
                             </Tippy>
                         </div>
                     ) : (
-                        <>
-                            <Button primary href="/upload" className={cx('abc-xyz')} size="medium">
-                                Log in
-                            </Button>
-                        </>
+                        <Button primary to="/upload" className={cx('abc-xyz')} size="medium">
+                            Log in
+                        </Button>
                     )}
 
                     <HeaderMenu

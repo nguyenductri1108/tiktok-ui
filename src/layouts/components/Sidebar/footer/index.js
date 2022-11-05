@@ -8,7 +8,7 @@ function Footer({ data }) {
     return (
         <div className={cx('wrapper')}>
             {data.map((item, index) => {
-                return <FooterList data={item}></FooterList>;
+                return <FooterList key={index} data={item}></FooterList>;
             })}
         </div>
     );
