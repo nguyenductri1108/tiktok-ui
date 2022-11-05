@@ -5,10 +5,11 @@ import config from '~/config';
 import { sidebarIcon } from '~/assets/iconSVG';
 import { MenuItem, MainMenu } from './mainMenu';
 import ListAccountsSidebar from '~/component/ListAccountSidebar';
+import LoginRec from './loginRecommend';
 
 const cx = classNames.bind(styles);
 
-const loggedIn = true;
+const loggedIn = false;
 
 function Sidebar() {
     return (
@@ -33,6 +34,8 @@ function Sidebar() {
                     activeIcon={sidebarIcon.mainMenu.live.solid}
                 />
             </MainMenu>
+
+            {!loggedIn && <LoginRec></LoginRec>}
 
             <ListAccountsSidebar
                 heading="Suggested Account"
@@ -64,29 +67,31 @@ function Sidebar() {
                 ]}
             />
 
-            <ListAccountsSidebar
-                heading="Following"
-                data={[
-                    {
-                        nickname: 'tri',
-                        avatar: 'dsa',
-                        tick: true,
-                        full_name: 'trind',
-                    },
-                    {
-                        nickname: 'tri',
-                        avatar: 'dsa',
-                        tick: true,
-                        full_name: 'trind',
-                    },
-                    {
-                        nickname: 'tri',
-                        avatar: 'dsa',
-                        tick: true,
-                        full_name: 'trind',
-                    },
-                ]}
-            />
+            {loggedIn && (
+                <ListAccountsSidebar
+                    heading="Following"
+                    data={[
+                        {
+                            nickname: 'tri',
+                            avatar: 'dsa',
+                            tick: true,
+                            full_name: 'trind',
+                        },
+                        {
+                            nickname: 'tri',
+                            avatar: 'dsa',
+                            tick: true,
+                            full_name: 'trind',
+                        },
+                        {
+                            nickname: 'tri',
+                            avatar: 'dsa',
+                            tick: true,
+                            full_name: 'trind',
+                        },
+                    ]}
+                />
+            )}
         </aside>
     );
 }
