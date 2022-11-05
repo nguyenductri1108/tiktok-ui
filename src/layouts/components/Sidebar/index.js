@@ -7,6 +7,7 @@ import { MenuItem, MainMenu } from './mainMenu';
 import ListAccountsSidebar from '~/component/ListAccountSidebar';
 import LoginRec from './loginRecommend';
 import Discover from './discover/discover';
+import Footer from './footer';
 
 const cx = classNames.bind(styles);
 
@@ -103,38 +104,49 @@ const DiscoverAccount = [
     },
 ];
 
+const FooterData = [
+    ['About', 'Newsroom', 'Contact', 'Careers', 'ByteDance'],
+    ['TikTok for Good', 'Advertise', 'Developers', 'Transparency', 'TikTok Rewards', 'TikTok Browse', 'TikTok Embeds'],
+    [],
+    [],
+];
+
 function Sidebar() {
     return (
-        <aside className={cx('wrapper')}>
-            <MainMenu>
-                <MenuItem
-                    title="For You"
-                    to={config.publicRoutes.home}
-                    icon={sidebarIcon.mainMenu.home.regular}
-                    activeIcon={sidebarIcon.mainMenu.home.solid}
-                />
-                <MenuItem
-                    title="Following"
-                    to={config.publicRoutes.following}
-                    icon={sidebarIcon.mainMenu.following.regular}
-                    activeIcon={sidebarIcon.mainMenu.following.solid}
-                />
-                <MenuItem
-                    title="LIVE"
-                    to={config.publicRoutes.live}
-                    icon={sidebarIcon.mainMenu.live.regular}
-                    activeIcon={sidebarIcon.mainMenu.live.solid}
-                />
-            </MainMenu>
+        <div className={cx('container')}>
+            <aside className={cx('wrapper')}>
+                <MainMenu>
+                    <MenuItem
+                        title="For You"
+                        to={config.publicRoutes.home}
+                        icon={sidebarIcon.mainMenu.home.regular}
+                        activeIcon={sidebarIcon.mainMenu.home.solid}
+                    />
+                    <MenuItem
+                        title="Following"
+                        to={config.publicRoutes.following}
+                        icon={sidebarIcon.mainMenu.following.regular}
+                        activeIcon={sidebarIcon.mainMenu.following.solid}
+                    />
+                    <MenuItem
+                        title="LIVE"
+                        to={config.publicRoutes.live}
+                        icon={sidebarIcon.mainMenu.live.regular}
+                        activeIcon={sidebarIcon.mainMenu.live.solid}
+                    />
+                </MainMenu>
 
-            {!loggedIn && <LoginRec></LoginRec>}
+                {!loggedIn && <LoginRec></LoginRec>}
 
-            <ListAccountsSidebar heading="Suggested Account" data={SuggestedAccount} />
+                <ListAccountsSidebar heading="Suggested Account" data={SuggestedAccount} />
 
-            {loggedIn && <ListAccountsSidebar heading="Following" data={FollowingAccount} />}
+                {loggedIn && <ListAccountsSidebar heading="Following" data={FollowingAccount} />}
 
-            <Discover data={DiscoverAccount}></Discover>
-        </aside>
+                <Discover data={DiscoverAccount}></Discover>
+
+                <Footer data={FooterData}></Footer>
+            </aside>
+        </div>
     );
 }
 
