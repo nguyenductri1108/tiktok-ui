@@ -7,9 +7,16 @@
 }
 
 .container {
-    width: var(--default-layout-width);
     display: flex;
     max-width: 100%;
+}
+
+.full {
+    width: 100%;
+}
+
+.normal {
+    width: var(--default-layout-width);
 }
 
 .content {

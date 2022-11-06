@@ -35,7 +35,7 @@ const cx = classNames.bind(styles);
 
 const currentUser = true;
 
-function Header() {
+function Header({ className }) {
     const MENU_ITEM = [
         {
             icon: <FontAwesomeIcon icon={faEarthAsia} />,
@@ -108,9 +108,11 @@ function Header() {
         },
     ];
 
+    console.log('headerSize at Header:' + className);
+
     return (
         <header className={cx('wrapper')}>
-            <div className={cx('inner')}>
+            <div className={cx('inner', className)}>
                 <Link to={config.publicRoutes.home}>
                     <img src={images.logo} alt="tiktok"></img>
                 </Link>

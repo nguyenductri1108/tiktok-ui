@@ -1,6 +1,11 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
+import classNames from 'classnames/bind';
+import styles from './HeaderOnly.module.scss';
+
+const cx = classNames.bind(styles);
+
 const footerContent = [
     { title: 'Company', data: ['About', 'Newsroom', 'Contact', 'Careers', 'ByteDance'] },
     {
@@ -24,12 +29,12 @@ const footerContent = [
     },
 ];
 
-function HeaderOnly({ children }) {
+function HeaderOnly({ children, footer, headerSize, contentSize }) {
     return (
         <div>
-            <Header />
-            <div className="container">
-                <div className="content">{children}</div>
+            <Header className={cx(headerSize)} />
+            <div className={cx('container', contentSize)}>
+                <div className={cx('content')}>{children}</div>
             </div>
             <Footer data={footerContent} />
         </div>

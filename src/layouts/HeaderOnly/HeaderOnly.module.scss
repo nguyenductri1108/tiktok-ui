@@ -1,8 +1,16 @@
 .container {
-    min-height: 1000px;
+    min-height: 500px;
+    margin: var(--default-layout-header-height) auto 0;
     .content {
         height: 100%;
+        width: 100%;
         overflow: hidden;
     }
 }
-.footer
+.normal {
+    width: var(--default-layout-width);
+}
+
+.full {
+    width: 100%;
+}

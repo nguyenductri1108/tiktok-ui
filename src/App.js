@@ -22,7 +22,7 @@ function App() {
                                     key={index}
                                     path={route.path}
                                     element={
-                                        <Layout>
+                                        <Layout headerSize={route.headerSize} contentSize={route.contentSize}>
                                             <route.component />
                                         </Layout>
                                     }
