@@ -108,8 +108,6 @@ function Header({ className }) {
         },
     ];
 
-    console.log('headerSize at Header:' + className);
-
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner', className)}>

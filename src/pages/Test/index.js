@@ -1,11 +1,12 @@
 import { MenuItem, TextField } from '@mui/material';
 import styles from './Test.module.scss';
 import classNames from 'classnames/bind';
+// import 'antd/dist/antd.css';
 
 // import './index.css';
 import { InboxOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -31,26 +32,55 @@ const props = {
 };
 
 function Test() {
+    // const [img, setImg] = useState('./');
+
     const inputRef = useRef();
 
-    const handleInput = () => {
-        console.log('inputRef:' + inputRef.current);
+    const handleInput = (e) => {
+        // setImg(inputRef.current.value);
+        console.log('input: ' + e.target);
     };
 
     function chooseFileClick() {
         inputRef.current.click();
     }
 
-    function handleChangeInput() {
-        console.log(inputRef.current.file);
+    function dropHandler(ev) {
+        console.log('File(s) dropped');
+
+        // Prevent default behavior (Prevent file from being opened)
+        ev.preventDefault();
+
+        if (ev.dataTransfer.items) {
+            // Use DataTransferItemList interface to access the file(s)
+            [...ev.dataTransfer.items].forEach((item, i) => {
+                // If dropped items aren't files, reject them
+                if (item.kind === 'file') {
+                    const file = item.getAsFile();
+                    console.log(`… file[${i}] = ${file}`);
+                }
+            });
+        } else {
+            // Use DataTransfer interface to access the file(s)
+            [...ev.dataTransfer.files].forEach((file, i) => {
+                console.log(`… file[${i}] = ${file}`);
+            });
+        }
+    }
+
+    function dragOverHandler(ev) {
+        console.log('File(s) in drop zone');
+
+        // Prevent default behavior (Prevent file from being opened)
+        ev.preventDefault();
     }
 
     return (
         <div>
-            <h2>
-                Test
-                <h3 className={cx('abc')}>abc</h3>
-            </h2>
+            <div className="abcc">
+                <h2>Test</h2>
+            </div>
+
             {/* <TextField
                 variant="outlined"
                 id="demo-simple-select-autowidth"
@@ -83,10 +113,18 @@ function Test() {
                 </p>
             </Dragger> */}
 
-            <input hidden multiple="false" type="file" ref={inputRef} onChange={handleInput} />
-            <div onClick={chooseFileClick} onChange={handleChangeInput} className={cx('dropPlace')}>
+            <input hidden multiple type="file" ref={inputRef} onChange={handleInput} />
+            <div onClick={chooseFileClick} className={cx('dropPlace')}>
                 Drop file here
             </div>
+
+            <div className={cx('drop')} onDrop={dropHandler} onDragOver={dragOverHandler}>
+                <p>
+                    Drag one or more files to this <i>drop zone</i>.
+                </p>
+            </div>
+
+            {/* <img src={img} alt="img" className={cx('img')} /> */}
         </div>
     );
 }
