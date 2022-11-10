@@ -8,6 +8,7 @@ function Upload() {
         <div className={cx('wrapper')}>
             <h2>Upload video</h2>
             <span>Post a video to your account</span>
+            <div className={cx('upload-content')}></div>
         </div>
     );
 }
