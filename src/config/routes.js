@@ -5,4 +5,5 @@ export const publicRoutes = {
     search: '/search',
     profile: '/@:nickname',
     live: '/live',
+    test: '/test',
 };

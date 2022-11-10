@@ -1,14 +1,13 @@
 .wrapper {
     width: 100%;
-    color: #fff;
-    background: #000;
+    background-color: #000;
     padding-bottom: 24px;
     margin-top: 200px;
 }
 
 .footer-container {
     margin: auto;
-    width: 1150px;
+    width: var(--default-layout-width);
     display: flex;
     justify-content: space-between;
     padding-top: 40px;
@@ -49,6 +48,12 @@
 
 .language {
     display: inline-block;
-    background-color: #ccc;
     font-size: 18px;
+}
+
+.language-choose {
+    .MuiSvgIcon-root {
+        color: yellow;
+        background-color: yellow;
+    }
 }

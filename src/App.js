@@ -12,17 +12,19 @@ function App() {
                     <Routes>
                         {publicRoutes.map((route, index) => {
                             let Layout = DefaultLayout;
+                            let props = { headerSize: route.headerSize, contentSize: route.contentSize };
                             if (route.layout) {
                                 Layout = route.layout;
                             } else if (route.layout === null) {
                                 Layout = Fragment;
+                                props = {};
                             }
                             return (
                                 <Route
                                     key={index}
                                     path={route.path}
                                     element={
-                                        <Layout headerSize={route.headerSize} contentSize={route.contentSize}>
+                                        <Layout {...props}>
                                             <route.component />
                                         </Layout>
                                     }

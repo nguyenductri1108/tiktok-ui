@@ -3,6 +3,7 @@ import Home from '~/pages/Home';
 import Following from '~/pages/Following';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
+import Test from '~/pages/Test';
 import config from '~/config';
 //Layout
 
@@ -28,6 +29,7 @@ const publicRoutes = [
         contentSize: 'normal',
     },
     { path: config.publicRoutes.live, component: Following, headerSize: 'full', contentSize: 'full' },
+    { path: config.publicRoutes.test, component: Test, headerSize: 'full', contentSize: 'full' },
 ];
 
 const privateRoutes = {};

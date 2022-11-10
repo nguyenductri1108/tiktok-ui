@@ -1,0 +1,22 @@
+h2 {
+    color: red;
+    .abc {
+        color: red;
+    }
+}
+
+.language_choose {
+    .MuiSvgIcon-root {
+        color: red;
+    }
+}
+
+.dropPlace {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px dashed var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
