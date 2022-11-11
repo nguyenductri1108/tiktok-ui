@@ -33,8 +33,8 @@ function HeaderOnly({ children, footer, headerSize, contentSize }) {
     return (
         <div>
             <Header className={cx(headerSize)} />
-            <div className={cx('container', contentSize)}>
-                <div className={cx('content')}>{children}</div>
+            <div className={cx('container')}>
+                <div className={cx('content', contentSize)}>{children}</div>
             </div>
             <Footer data={footerContent} />
         </div>

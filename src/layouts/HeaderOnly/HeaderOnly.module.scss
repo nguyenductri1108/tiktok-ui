@@ -1,13 +1,20 @@
 .container {
-    min-height: 500px;
-    margin: var(--default-layout-header-height) auto 0;
-    .content {
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-    }
+    margin-top: var(--default-layout-header-height);
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
 }
+
+.content {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 16px 0;
+}
+
 .normal {
+    display: inline-block;
     width: var(--default-layout-width);
 }
 

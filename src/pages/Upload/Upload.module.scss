@@ -1,7 +1,29 @@
 .wrapper {
+    margin: 0 auto;
     width: 1100px;
     box-shadow: rgb(0 0 0 / 6%) 0px 2px 8px;
     border-radius: 8px;
     background-color: rgb(255, 255, 255);
     padding: 24px 56px;
+}
+
+.heading {
+    box-sizing: border-box;
+    margin-block: 0px;
+    font-size: 24px;
+    line-height: 1.5;
+    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 700;
+    color: rgba(22, 24, 35, 1);
+    display: block;
+}
+
+.heading-des {
+    box-sizing: border-box;
+    margin-block: 0px;
+    font-size: 18px;
+    line-height: 1.5;
+    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.5);
 }
