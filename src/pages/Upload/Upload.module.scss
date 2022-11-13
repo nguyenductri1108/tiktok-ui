@@ -27,3 +27,68 @@
     font-weight: 400;
     color: rgba(22, 24, 35, 0.5);
 }
+
+.upload-content {
+    display: flex;
+    margin-top: 24px;
+    margin-bottom: 130px;
+}
+.upload-card {
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.15s ease-in-out 0s;
+    flex-direction: column;
+    width: 260px;
+    border: 2px dashed rgba(22, 24, 35, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    padding: 35px;
+    height: 458px;
+    &:hover {
+        border-color: rgb(254, 44, 85);
+        background-color: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
+}
+
+.upload-icon {
+}
+
+.upload-card-title {
+    font-size: 1.8rem;
+    margin-top: 24px;
+    font-weight: 600;
+}
+
+.upload-card-title2 {
+    font-weight: 400;
+    margin-top: 4px;
+    margin-bottom: 24px;
+}
+
+.upload-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-des {
+    color: rgba(22, 24, 35, 0.5);
+    line-height: 2.4rem;
+    font-size: 1.4rem;
+    & + & {
+        margin-top: 6px;
+    }
+}
+
+.select-button {
+    width: 100%;
+    margin-top: 32px;
+    color: var(--white);
+    height: 36px;
+    background-color: rgba(254, 44, 85, 1);
+    span {
+        font-weight: 600;
+        font-size: 1.6rem;
+        font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    }
+}
