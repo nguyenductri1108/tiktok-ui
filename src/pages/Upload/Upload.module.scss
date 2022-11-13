@@ -91,4 +91,47 @@
         font-size: 1.6rem;
         font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
     }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.upload-option {
+    margin-left: 24px;
+}
+
+.upload-edit {
+    padding: 16px;
+    background-color: rgba(22, 24, 35, 0.03);
+    position: relative;
+    border-radius: 2px;
+    height: 104px;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 12px;
+}
+
+.edit-icon {
+    margin-top: 2px;
+}
+
+.edit-des {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .edit-title {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+        font-weight: 600;
+    }
+    .edit-title2 {
+        font-weight: 400;
+        color: rgba(22, 24, 35, 0.75);
+        opacity: 0.75;
+        font-size: 14px;
+        line-height: 22px;
+        font-style: normal;
+        font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    }
 }

@@ -26,6 +26,28 @@ function Upload() {
                         <span>Select file</span>
                     </button>
                 </div>
+                <div className={cx('upload-option')}>
+                    <div className={cx('upload-edit')}>
+                        <span className={cx('edit-icon')}>
+                            <img src="https://lf16-tiktok-common.ttwstatic.com/obj/tiktok-web-common-sg/ies/creator_center/svgs/divide_black.e1e40d5b.svg"></img>
+                        </span>
+
+                        <div className={cx('edit-des')}>
+                            <span className={cx('edit-title')}>Divide videos and edit</span>
+                            <span className={cx('edit-title2')}>
+                                You can quickly divide videos into multiple parts, remove redundant parts and turn
+                                landscape videos into portrait videos
+                            </span>
+                        </div>
+                        <button className={cx('edit-btn')}>Edit</button>
+                    </div>
+                    <div className={cx('upload-caption')}></div>
+                    <div className={cx('upload-cover')}></div>
+                    <div className={cx('upload-range')}></div>
+                    <div className={cx('upload-permission')}></div>
+                    <div className={cx('upload-check')}></div>
+                    <div className={cx('upload-button')}></div>
+                </div>
             </div>
         </div>
     );
