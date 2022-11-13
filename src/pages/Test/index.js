@@ -38,7 +38,7 @@ function Test() {
 
     const handleInput = (e) => {
         // setImg(inputRef.current.value);
-        console.log('input: ' + e.target);
+        console.log('input: ' + e.target.file[0]);
     };
 
     function chooseFileClick() {
