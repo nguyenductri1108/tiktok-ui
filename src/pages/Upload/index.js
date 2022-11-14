@@ -1,9 +1,19 @@
 import classNames from 'classnames/bind';
 import styles from './Upload.module.scss';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import { useRef, useState } from 'react';
+import { TextareaAutosize } from '@mui/material';
 
 const cx = classNames.bind(styles);
 
 function Upload() {
+    const [caption, setCaption] = useState('');
+    const captionRef = useRef();
+
+    const handleCaptionInput = () => {
+        setCaption(captionRef.current.value);
+    };
+
     return (
         <div className={cx('wrapper')}>
             <h2 className={cx('heading')}>Upload video</h2>
@@ -41,7 +51,36 @@ function Upload() {
                         </div>
                         <button className={cx('edit-btn')}>Edit</button>
                     </div>
-                    <div className={cx('upload-caption')}></div>
+                    <div className={cx('upload-caption')}>
+                        <div className={cx('caption-title')}>
+                            <span className={cx('title')}>Caption</span>
+                            <span className={cx('word-count')}></span>
+                        </div>
+                        <div className={cx('caption-input-wrapper')}>
+                            <div className={cx('textarea-wrapper')}>
+                                <TextareaAutosize
+                                    onChange={handleCaptionInput}
+                                    className={cx('caption-input')}
+                                    value={caption}
+                                    ref={captionRef}
+                                    style={{
+                                        width: 200,
+                                        outline: 'none',
+                                        fontSize: 16,
+                                        width: '100%',
+                                    }}
+                                />
+                                {/* <TextareaAutosize
+                                    aria-label="empty textarea"
+                                    
+                                /> */}
+                            </div>
+                            <div className={cx('icon-wrapper')}>
+                                <AlternateEmailIcon sx={{ marginRight: '8px' }} fontSize="medium" />
+                                <img src="https://lf16-tiktok-common.ttwstatic.com/obj/tiktok-web-common-sg/ies/creator_center/svgs/hashtag.234f1b9c.svg" />
+                            </div>
+                        </div>
+                    </div>
                     <div className={cx('upload-cover')}></div>
                     <div className={cx('upload-range')}></div>
                     <div className={cx('upload-permission')}></div>
