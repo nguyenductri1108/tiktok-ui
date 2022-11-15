@@ -7,6 +7,7 @@ import classNames from 'classnames/bind';
 import { InboxOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
 import { useRef, useState } from 'react';
+import Test1 from './Test';
 
 const cx = classNames.bind(styles);
 
@@ -33,6 +34,7 @@ const props = {
 
 function Test() {
     // const [img, setImg] = useState('./');
+    const [test, setTest] = useState(0);
 
     const inputRef = useRef();
 
@@ -125,6 +127,16 @@ function Test() {
             </div>
 
             {/* <img src={img} alt="img" className={cx('img')} /> */}
+
+            <button
+                onClick={() => {
+                    setTest((test) => test + 1);
+                }}
+            >
+                up
+            </button>
+            <h3>{test}</h3>
+            <Test1></Test1>
         </div>
     );
 }

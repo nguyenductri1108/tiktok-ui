@@ -11,6 +11,10 @@ function Upload() {
     const captionRef = useRef();
 
     const handleCaptionInput = () => {
+        if (caption.length > 150) {
+            setCaption(captionRef.current.value.slice(0, 150));
+            return;
+        }
         setCaption(captionRef.current.value);
     };
 
@@ -54,7 +58,7 @@ function Upload() {
                     <div className={cx('upload-caption')}>
                         <div className={cx('caption-title')}>
                             <span className={cx('title')}>Caption</span>
-                            <span className={cx('word-count')}></span>
+                            <span className={cx('word-count')}>{`${caption.length} / 150`}</span>
                         </div>
                         <div className={cx('caption-input-wrapper')}>
                             <div className={cx('textarea-wrapper')}>
