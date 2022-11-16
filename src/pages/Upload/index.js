@@ -2,12 +2,15 @@ import classNames from 'classnames/bind';
 import styles from './Upload.module.scss';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { useRef, useState } from 'react';
-import { TextareaAutosize } from '@mui/material';
+import { MenuItem, TextareaAutosize, TextField } from '@mui/material';
 
 const cx = classNames.bind(styles);
 
+const ranges = ['Public', 'Friends', 'Private'];
+
 function Upload() {
     const [caption, setCaption] = useState('');
+    const [range, setRange] = useState('Public');
     const captionRef = useRef();
 
     const handleCaptionInput = () => {
@@ -85,8 +88,44 @@ function Upload() {
                             </div>
                         </div>
                     </div>
-                    <div className={cx('upload-cover')}></div>
-                    <div className={cx('upload-range')}></div>
+                    <div style={{ marginTop: '24px' }} className={cx('cover-wrapper')}>
+                        <span className={cx('cover-title')}>Cover</span>
+                        <div className={cx('cover-content')}>
+                            <div className={cx('cover-frame')}></div>
+                        </div>
+                    </div>
+                    <div className={cx('upload-range')}>
+                        <span className={cx('range-title')}>Who can watch this video</span>
+
+                        <TextField
+                            className={cx('range-menu')}
+                            id="outlined-select-currency"
+                            sx={{
+                                '& .MuiOutlinedInput-notchedOutline': {},
+                                '.MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline ': {
+                                    borderColor: 'rgba(0, 0, 0, 0.23)',
+                                },
+                                '& .MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':
+                                    {
+                                        borderColor: 'rgba(0, 0, 0, 0.23)',
+                                    },
+                                width: '300px',
+                                height: '36px',
+                            }}
+                            select
+                            value={range}
+                            onChange={(e) => {
+                                setRange(e.target.value);
+                                console.log(range);
+                            }}
+                        >
+                            {ranges.map((option) => (
+                                <MenuItem key={option} value={option}>
+                                    {option}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+                    </div>
                     <div className={cx('upload-permission')}></div>
                     <div className={cx('upload-check')}></div>
                     <div className={cx('upload-button')}></div>

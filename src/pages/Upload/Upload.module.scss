@@ -157,6 +157,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .title {
+        font-family: Proximanova, Arial, Tahoma, PingFangSC, sans-serif;
+        color: rgba(22, 24, 35, 1);
+        font-weight: 600;
+        font-size: 1.6rem;
+        margin-bottom: 2px;
+    }
 }
 
 .caption-input-wrapper {
@@ -201,4 +208,42 @@
     line-height: 17px;
     color: rgba(22, 24, 35, 0.5);
     white-space: pre;
+}
+
+.cover-content {
+    width: 100%;
+    height: 168px;
+    padding: 6px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 2px;
+
+    .cover-frame {
+        width: 84px;
+        height: 100%;
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.cover-title {
+    font-family: Proximanova, Arial, Tahoma, PingFangSC, sans-serif;
+    color: rgba(22, 24, 35, 1);
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+.upload-range {
+    margin-top: 24px;
+    .range-title {
+        font-family: Proximanova, Arial, Tahoma, PingFangSC, sans-serif;
+        color: rgba(22, 24, 35, 1);
+        font-weight: 600;
+        font-size: 1.6rem;
+        margin-bottom: 4px;
+        display: block;
+    }
+    .range-menu {
+        outline: none;
+    }
 }
