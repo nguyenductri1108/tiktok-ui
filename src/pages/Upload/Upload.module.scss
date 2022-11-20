@@ -247,3 +247,102 @@
         outline: none;
     }
 }
+
+.upload-permission {
+    margin-top: 40px;
+}
+
+.permission-title {
+    font-family: Proximanova, Arial, Tahoma, PingFangSC, sans-serif;
+    color: rgba(22, 24, 35, 1);
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.permission-menu {
+    display: flex;
+    flex-direction: row;
+    .permission-item {
+        display: inline-block;
+    }
+}
+
+.handle-check {
+    display: flex;
+}
+
+.check-des {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 400;
+    color: rgba(22, 24, 35, 0.75);
+    margin-top: 8px;
+    display: block;
+}
+
+.upload-button {
+    display: flex;
+    .discard-button {
+        box-sizing: border-box;
+        appearance: none;
+        width: 164px;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        position: relative;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 2px;
+        font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        background-clip: padding-box;
+        font-size: 1.6rem;
+        height: 48px;
+        padding-inline: 23px;
+        color: rgba(22, 24, 35, 1);
+        background-color: rgba(255, 255, 255, 1);
+        border-color: rgba(22, 24, 35, 0.12);
+        display: inline-block;
+    }
+
+    .post-button {
+        box-sizing: border-box;
+        appearance: none;
+        width: 164px;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        position: relative;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 2px;
+        font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        background-clip: padding-box;
+        font-size: 1.6rem;
+        height: 48px;
+        padding-inline: 23px;
+        color: var(--white);
+        background-color: var(--primary);
+        border-color: var(--primary);
+        display: inline-block;
+        margin-left: 16px;
+        &:disabled {
+            cursor: not-allowed;
+            color: rgba(22, 24, 35, 0.34);
+            background-color: rgba(235, 235, 235, 1);
+            border-color: rgba(235, 235, 235, 1);
+        }
+    }
+}

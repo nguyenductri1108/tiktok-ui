@@ -2,11 +2,45 @@ import classNames from 'classnames/bind';
 import styles from './Upload.module.scss';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import { useRef, useState } from 'react';
-import { MenuItem, TextareaAutosize, TextField } from '@mui/material';
+import {
+    Checkbox,
+    createTheme,
+    FormControlLabel,
+    FormGroup,
+    MenuItem,
+    TextareaAutosize,
+    TextField,
+} from '@mui/material';
+import { Switch } from 'antd';
+import { styled } from '@mui/system';
 
 const cx = classNames.bind(styles);
 
 const ranges = ['Public', 'Friends', 'Private'];
+
+const CssTextField = styled(TextField)({
+    backgroundColor: '#321321',
+    padding: '10px',
+    root: {
+        '& label.Mui-focused': {
+            color: 'white',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: 'yellow',
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'white',
+            },
+            '&:hover fieldset': {
+                borderColor: 'white',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: 'yellow',
+            },
+        },
+    },
+});
 
 function Upload() {
     const [caption, setCaption] = useState('');
@@ -19,6 +53,10 @@ function Upload() {
             return;
         }
         setCaption(captionRef.current.value);
+    };
+
+    const onChange = (checked) => {
+        console.log(`switch to ${checked}`);
     };
 
     return (
@@ -97,7 +135,7 @@ function Upload() {
                     <div className={cx('upload-range')}>
                         <span className={cx('range-title')}>Who can watch this video</span>
 
-                        <TextField
+                        <CssTextField
                             className={cx('range-menu')}
                             id="outlined-select-currency"
                             sx={{
@@ -124,11 +162,72 @@ function Upload() {
                                     {option}
                                 </MenuItem>
                             ))}
-                        </TextField>
+                        </CssTextField>
                     </div>
-                    <div className={cx('upload-permission')}></div>
-                    <div className={cx('upload-check')}></div>
-                    <div className={cx('upload-button')}></div>
+                    <div className={cx('upload-permission')}>
+                        <span className={cx('permission-title')}>Allow user to:</span>
+                        <FormGroup className={cx('permission-menu')}>
+                            <FormControlLabel
+                                className={cx('permission-item')}
+                                control={
+                                    <Checkbox
+                                        sx={{
+                                            color: 'var(--primary)',
+                                            '&.Mui-checked': {
+                                                color: 'var(--primary)',
+                                            },
+                                        }}
+                                        defaultChecked
+                                    />
+                                }
+                                label="Comment"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        sx={{
+                                            color: 'var(--primary)',
+                                            '&.Mui-checked': {
+                                                color: 'var(--primary)',
+                                            },
+                                        }}
+                                        defaultChecked
+                                    />
+                                }
+                                label="Duet"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        sx={{
+                                            color: 'var(--primary)',
+                                            '&.Mui-checked': {
+                                                color: 'var(--primary)',
+                                            },
+                                        }}
+                                        defaultChecked
+                                    />
+                                }
+                                label="Stitch"
+                            />
+                        </FormGroup>
+                    </div>
+                    <div className={cx('upload-check')}>
+                        <div className={cx('handle-check')}>
+                            <span className={cx('check-title')}>Run a copyright check</span>
+                            <Switch defaultChecked onChange={onChange} />
+                        </div>
+                        <span className={cx('check-des')}>
+                            We'll check your video for potential copyright infringements on used sounds. If
+                            infringements are found, you can edit the video before posting.
+                        </span>
+                    </div>
+                    <div className={cx('upload-button')}>
+                        <button className={cx('discard-button')}>Discard</button>
+                        <button disabled className={cx('post-button')}>
+                            Post
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
