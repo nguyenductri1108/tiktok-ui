@@ -19,8 +19,9 @@ const cx = classNames.bind(styles);
 const ranges = ['Public', 'Friends', 'Private'];
 
 const CssTextField = styled(TextField)({
-    backgroundColor: '#321321',
-    padding: '10px',
+    focused: {
+        borderColor: 'black',
+    },
     root: {
         '& label.Mui-focused': {
             color: 'white',
@@ -38,6 +39,9 @@ const CssTextField = styled(TextField)({
             '&.Mui-focused fieldset': {
                 borderColor: 'yellow',
             },
+        },
+        '& fieldset': {
+            borderColor: 'white',
         },
     },
 });
@@ -135,18 +139,29 @@ function Upload() {
                     <div className={cx('upload-range')}>
                         <span className={cx('range-title')}>Who can watch this video</span>
 
-                        <CssTextField
+                        <TextField
                             className={cx('range-menu')}
                             id="outlined-select-currency"
-                            sx={{
-                                '& .MuiOutlinedInput-notchedOutline': {},
-                                '.MuiInputBase-root-MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline ': {
-                                    borderColor: 'rgba(0, 0, 0, 0.23)',
-                                },
-                                '& .MuiInputBase-root-MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':
-                                    {
-                                        borderColor: 'rgba(0, 0, 0, 0.23)',
+                            SelectProps={{
+                                MenuProps: {
+                                    sx: {
+                                        '& li': {
+                                            fontSize: '1.6rem',
+                                            height: 'fit-content',
+                                            minHeight: 0,
+                                        },
                                     },
+                                },
+                            }}
+                            sx={{
+                                '& fieldset': {
+                                    border: '1px solid black !important',
+                                },
+                                '#outlined-select-currency': {
+                                    fontSize: '1.6rem',
+                                    height: 'fit-content',
+                                    minHeight: 0,
+                                },
                                 width: '300px',
                                 height: '36px',
                             }}
@@ -162,7 +177,7 @@ function Upload() {
                                     {option}
                                 </MenuItem>
                             ))}
-                        </CssTextField>
+                        </TextField>
                     </div>
                     <div className={cx('upload-permission')}>
                         <span className={cx('permission-title')}>Allow user to:</span>

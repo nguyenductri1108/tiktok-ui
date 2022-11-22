@@ -28,7 +28,7 @@ import VideoCallIcon from '@mui/icons-material/VideoCall';
 import SettingsIcon from '@mui/icons-material/Settings';
 import CustomAvatar from '~/component/Images/Avatar';
 import HeaderSearch from '~/layouts/components/Header/HeaderSearch';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import config from '~/config';
 
 const cx = classNames.bind(styles);

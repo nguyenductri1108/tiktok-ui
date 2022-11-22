@@ -1,11 +1,13 @@
 import classNames from 'classnames/bind';
 import styles from './loginmodal.module.scss';
 
+import { forwardRef } from 'react';
+
 const cx = classNames.bind(styles);
 
-function Modal({}) {
+function Modal(props) {
     return (
-        <div className={cx('overlay')}>
+        <div ref={props.ref} className={cx('overlay')}>
             <div className={cx('modal-container')}>
                 <div className="modal-content"></div>
             </div>
@@ -29,4 +31,4 @@ function Modal({}) {
     );
 }
 
-export default Modal;
+export default forwardRef(Modal);

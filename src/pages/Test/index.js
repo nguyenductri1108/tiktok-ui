@@ -8,6 +8,10 @@ import { InboxOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
 import { useRef, useState } from 'react';
 import Test1 from './Test';
+import { Box } from '@mui/system';
+import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CloseIcon from '@mui/icons-material/Close';
 
 const cx = classNames.bind(styles);
 
@@ -32,111 +36,143 @@ const props = {
     },
 };
 
+const BASE_API_URL = 'https://staging.books.monsters.vn/apis/imagefiles';
+const BASE_FILE = 'https://books.monsters.vn/files';
+
 function Test() {
-    // const [img, setImg] = useState('./');
-    const [test, setTest] = useState(0);
-
     const inputRef = useRef();
+    const imgRef = useRef();
+    const inputRefArea = useRef();
+    const [imageURL, setImageURL] = useState('');
 
-    const handleInput = (e) => {
-        // setImg(inputRef.current.value);
-        console.log('input: ' + e.target.file[0]);
+    console.log(imageURL);
+    localStorage.setItem(
+        'bearer_token',
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY2OTA1MDk3NiwianRpIjoiN2NiNzU0ZjQtM2MwNi00ZjUwLWEyZGUtOTE1MGJlMWY4NmM0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjYzN2JiMjYwODQ4NzdhMTdhODNjMmUwZiIsIm5iZiI6MTY2OTA1MDk3NiwiY3NyZiI6IjgxZjlhNjE5LTU0MzAtNDA5Ni04Y2QzLTgxZmQyZjIyOTQyNSIsImV4cCI6MTY2OTEzNzM3Nn0.szuPhJOqzFkiEJy1WsDgGNq6Ta-TsYmz7ipvgFhl3Z0',
+    );
+
+    // const imagePost = async(url, data) {
+    //     const response
+
+    // }
+
+    const loadFile = function (file) {
+        const reader = new FileReader();
+        reader.onload = function () {
+            const output = imgRef.current;
+            setImageURL(reader.result);
+        };
+        reader.readAsDataURL(file);
     };
 
-    function chooseFileClick() {
-        inputRef.current.click();
-    }
+    const handleChange = async (event) => {
+        const photo = event.target.files[0];
+        const formData = new FormData();
+        console.log(localStorage.getItem('bearer_token'));
 
-    function dropHandler(ev) {
-        console.log('File(s) dropped');
+        formData.append('fileToUpload', photo);
 
-        // Prevent default behavior (Prevent file from being opened)
-        ev.preventDefault();
+        const response = await axios({
+            method: 'post',
+            url: BASE_API_URL,
+            data: formData,
+            headers: { Authorization: `Bearer ${localStorage.getItem('bearer_token')}` },
+        })
+            .then((response) => response.data)
+            .catch((error) => console.log(error));
 
-        if (ev.dataTransfer.items) {
-            // Use DataTransferItemList interface to access the file(s)
-            [...ev.dataTransfer.items].forEach((item, i) => {
-                // If dropped items aren't files, reject them
-                if (item.kind === 'file') {
-                    const file = item.getAsFile();
-                    console.log(`… file[${i}] = ${file}`);
-                }
-            });
-        } else {
-            // Use DataTransfer interface to access the file(s)
-            [...ev.dataTransfer.files].forEach((file, i) => {
-                console.log(`… file[${i}] = ${file}`);
-            });
-        }
-    }
+        setImageURL(`${BASE_FILE}/${response.data.thumb_url}`);
+    };
 
-    function dragOverHandler(ev) {
-        console.log('File(s) in drop zone');
+    const handleDragOver = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        inputRefArea.current.classList.add(cx('is-dragover'));
+        console.log(inputRefArea.current.classList);
+    };
+    const handleDragLeave = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
-        // Prevent default behavior (Prevent file from being opened)
-        ev.preventDefault();
-    }
+        console.log(inputRefArea.current.classList);
+    };
+    const handleDrop = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        inputRefArea.current.classList.remove(cx('is-dragover'));
+        loadFile(e.dataTransfer.files[0]);
+        console.log(e.dataTransfer.files);
+    };
 
     return (
         <div>
-            <div className="abcc">
-                <h2>Test</h2>
-            </div>
-
-            {/* <TextField
-                variant="outlined"
-                id="demo-simple-select-autowidth"
-                select
-                defaultValue={'English'}
-                className="language_choose"
+            <Box
                 sx={{
-                    width: '172px',
-                    border: '1px solid #ccc',
+                    height: '300px',
+                    width: '300px',
+                    border: '1px solid black',
                     borderRadius: '5px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }}
-                SelectProps={{
-                    style: { color: 'yellow', fontSize: '18px' },
-                }}
-            >
-                <MenuItem value="English">English</MenuItem>
-                <MenuItem value="Tiếng Việt">Tiếng việt</MenuItem>
-                <MenuItem value="Japanese">Japanese</MenuItem>
-                <MenuItem value="Tiếng abc">Tiếng abc</MenuItem>
-            </TextField> */}
-
-            {/* <Dragger {...props}>
-                <p className="ant-upload-drag-icon">
-                    <InboxOutlined />
-                </p>
-                <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                <p className="ant-upload-hint">
-                    Support for a single or bulk upload. Strictly prohibit from uploading company data or other band
-                    files
-                </p>
-            </Dragger> */}
-
-            <input hidden multiple type="file" ref={inputRef} onChange={handleInput} />
-            <div onClick={chooseFileClick} className={cx('dropPlace')}>
-                Drop file here
-            </div>
-
-            <div className={cx('drop')} onDrop={dropHandler} onDragOver={dragOverHandler}>
-                <p>
-                    Drag one or more files to this <i>drop zone</i>.
-                </p>
-            </div>
-
-            {/* <img src={img} alt="img" className={cx('img')} /> */}
-
-            <button
+                ref={inputRefArea}
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
                 onClick={() => {
-                    setTest((test) => test + 1);
+                    inputRef.current.click();
                 }}
             >
-                up
-            </button>
-            <h3>{test}</h3>
-            <Test1></Test1>
+                {!imageURL && (
+                    <div
+                        style={{
+                            margin: 'auto',
+                            display: 'block',
+                        }}
+                    >
+                        Click here
+                    </div>
+                )}
+                <input
+                    type="file"
+                    onChange={(e) => {
+                        handleChange(e);
+                        loadFile(e.target.files[0]);
+                    }}
+                    accept="image/*"
+                    hidden
+                    ref={inputRef}
+                />
+                {!!imageURL && (
+                    <Box
+                        sx={{
+                            width: '100%',
+                            height: '100%',
+                            position: 'relative',
+                        }}
+                    >
+                        <img
+                            className={cx('img')}
+                            alt="img"
+                            ref={imgRef}
+                            src={imageURL}
+                            style={{ width: '100%', height: '100%' }}
+                        ></img>
+                        <span
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setImageURL('');
+                                inputRef.current.files = [];
+                            }}
+                            className={cx('x-icon')}
+                        >
+                            <CloseIcon />
+                        </span>
+                    </Box>
+                )}
+            </Box>
         </div>
     );
 }
