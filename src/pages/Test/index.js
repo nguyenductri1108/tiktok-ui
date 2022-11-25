@@ -1,4 +1,14 @@
-import { MenuItem, TextareaAutosize, TextField } from '@mui/material';
+import {
+    Container,
+    Dialog,
+    DialogTitle,
+    Fade,
+    Grow,
+    MenuItem,
+    Slide,
+    TextareaAutosize,
+    TextField,
+} from '@mui/material';
 import styles from './Test.module.scss';
 import classNames from 'classnames/bind';
 // import 'antd/dist/antd.css';
@@ -6,7 +16,7 @@ import classNames from 'classnames/bind';
 // import './index.css';
 import { InboxOutlined } from '@ant-design/icons';
 import { message, Upload } from 'antd';
-import { useRef, useState } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 import Test1 from './Test';
 import { Box } from '@mui/system';
 import axios from 'axios';
@@ -44,6 +54,8 @@ function Test() {
     const imgRef = useRef();
     const inputRefArea = useRef();
     const [imageURL, setImageURL] = useState('');
+
+    const [open, setOpen] = useState(false);
 
     console.log(imageURL);
     localStorage.setItem(
@@ -173,6 +185,34 @@ function Test() {
                     </Box>
                 )}
             </Box>
+
+            <button
+                onClick={() => {
+                    setOpen(true);
+                }}
+            >
+                Open dialog
+            </button>
+            <Dialog
+                onClose={() => {
+                    setOpen(false);
+                }}
+                open={open}
+                sx={{}}
+            >
+                <Container
+                    sx={{
+                        width: '483px',
+                        height: '100%',
+                        padding: '48px 0px 0px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                    }}
+                >
+                    <DialogTitle className={cx('dialog-title')}>Log in to TikTok</DialogTitle>
+                </Container>
+            </Dialog>
         </div>
     );
 }
