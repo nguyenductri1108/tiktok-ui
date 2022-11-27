@@ -60,7 +60,16 @@
     justify-content: center;
     z-index: 1;
     right: 24px;
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     background: rgba(22, 24, 35, 0.03);
+}
+
+.dialog-title {
+    color: rgb(22, 24, 35);
+    font-family: SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+    font-size: 32px;
+    margin: 16px auto;
+    font-weight: bold;
+    text-align: center;
 }

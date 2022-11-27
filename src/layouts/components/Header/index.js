@@ -16,7 +16,7 @@ import images from '~/assets/images';
 
 import Tippy from '@tippyjs/react';
 
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 
 import Button from '~/component/Button';
 import tippy, { roundArrow } from 'tippy.js';
@@ -30,10 +30,13 @@ import CustomAvatar from '~/component/Images/Avatar';
 import HeaderSearch from '~/layouts/components/Header/HeaderSearch';
 import { Link, Navigate } from 'react-router-dom';
 import config from '~/config';
+import LoginModal from '~/component/LoginModal';
+import { ModalContext } from '~/component/Context/ModalContext';
 
 const cx = classNames.bind(styles);
 
 const currentUser = false;
+
 const MENU_ITEM = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
@@ -69,12 +72,12 @@ const userMenu = [
                 <path
                     fillRule="evenodd"
                     clipRule="evenodd"
-                    d="M10.0002 2.49992C5.85803 2.49992 2.50016 5.85778 2.50016 9.99992C2.50016 14.1421 5.85803 17.4999 10.0002 17.4999C14.1423 17.4999 17.5002 14.1421 17.5002 9.99992C17.5002 5.85778 14.1423 2.49992 10.0002 2.49992ZM0.833496 9.99992C0.833496 4.93731 4.93755 0.833252 10.0002 0.833252C15.0628 0.833252 19.1668 4.93731 19.1668 9.99992C19.1668 15.0625 15.0628 19.1666 10.0002 19.1666C4.93755 19.1666 0.833496 15.0625 0.833496 9.99992Z"
+                    d="M10.0002 2. .59992C5.85803 2. .59992 2.50016 5.85778 2.50016 9.99992C2.50016 1 .5.1 .521 5.85803 17. .5999 10.0002 17. .5999C1 .5.1 .523 17. .5999 17.5002 1 .5.1 .521 17.5002 9.99992C17.5002 5.85778 1 .5.1 .523 2. .59992 10.0002 2. .59992ZM0.833 .596 9.99992C0.833 .596  .5.93731  .5.93755 0.833252 10.0002 0.833252C15.0628 0.833252 19.1668  .5.93731 19.1668 9.99992C19.1668 15.0625 15.0628 19.1666 10.0002 19.1666C .5.93755 19.1666 0.833 .596 15.0625 0.833 .596 9.99992Z"
                 ></path>
                 <path
                     fillRule="evenodd"
                     clipRule="evenodd"
-                    d="M12.141 4.99992C12.141 6.27424 13.2115 7.3484 14.5835 7.3484V9.01507C13.6736 9.01507 12.8267 8.72389 12.141 8.22854V11.4961C12.141 13.2238 10.7059 14.5833 8.98723 14.5833C7.26852 14.5833 5.8335 13.2238 5.8335 11.4961C5.8335 9.76845 7.26852 8.40901 8.98723 8.40901V10.0757C8.1429 10.0757 7.50016 10.7343 7.50016 11.4961C7.50016 12.2579 8.1429 12.9166 8.98723 12.9166C9.83156 12.9166 10.4743 12.2579 10.4743 11.4961V4.99992H12.141Z"
+                    d="M12.1 .51  .5.99992C12.1 .51 6.27 .52 .5 13.2115 7.3 .58 .5 1 .5.5835 7.3 .58 .5V9.01507C13.6736 9.01507 12.8267 8.72389 12.1 .51 8.2285 .5V11. .5961C12.1 .51 13.2238 10.7059 1 .5.5833 8.98723 1 .5.5833C7.26852 1 .5.5833 5.8335 13.2238 5.8335 11. .5961C5.8335 9.768 .55 7.26852 8. .50901 8.98723 8. .50901V10.0757C8.1 .529 10.0757 7.50016 10.73 .53 7.50016 11. .5961C7.50016 12.2579 8.1 .529 12.9166 8.98723 12.9166C9.83156 12.9166 10. .57 .53 12.2579 10. .57 .53 11. .5961V .5.99992H12.1 .51Z"
                 ></path>
             </svg>
         ),
@@ -101,7 +104,7 @@ const userMenu = [
 ];
 
 function Header({ className }) {
-    const [openLoginModal, setOpenLoginModal] = useState(false);
+    const ModalAction = useContext(ModalContext);
 
     return (
         <header className={cx('wrapper')}>
@@ -136,8 +139,9 @@ function Header({ className }) {
                     ) : (
                         <Button
                             primary
-                            to="/upload"
-                            onClick={setOpenLoginModal(true)}
+                            onClick={() => {
+                                ModalAction.open();
+                            }}
                             className={cx('abc-xyz')}
                             size="medium"
                         >
@@ -156,8 +160,8 @@ function Header({ className }) {
                         {currentUser ? (
                             <CustomAvatar
                                 className={cx('more-btn')}
-                                sx={{ width: '32px', height: '32px', marginLeft: '24px', cursor: 'pointer' }}
-                                src="https://p16-sign-va.tiktokcdn.comm/musically-maliva-obj/1653272836951046~c5_100x100.jpeg?x-expires=1666789200&x-signature=2B7uOSc17cDMXlkBli%2FPNR3SsPs%3D"
+                                sx={{ width: '32px', height: '32px', marginLeft: '2 .5px', cursor: 'pointer' }}
+                                src="https://p16-sign-va.tiktokcdn.comm/musically-maliva-obj/16532728369510 .56~c5_100x100.jpeg?x-expires=1666789200&x-signature=2B7uOSc17cDMXlkBli%2FPNR3SsPs%3D"
                             />
                         ) : (
                             // </div>
