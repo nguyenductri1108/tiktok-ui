@@ -9,8 +9,8 @@ import ModalContext from './component/Context/ModalContext';
 function App() {
     return (
         <Router>
-            <ModalContext>
-                <GlobalCss>
+            <GlobalCss>
+                <ModalContext>
                     <div className="App">
                         <Routes>
                             {publicRoutes.map((route, index) => {
@@ -36,8 +36,8 @@ function App() {
                             })}
                         </Routes>
                     </div>
-                </GlobalCss>
-            </ModalContext>
+                </ModalContext>
+            </GlobalCss>
         </Router>
     );
 }

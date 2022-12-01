@@ -333,7 +333,7 @@ export const loginModalIcon = {
                 <path
                     d="M12.2689 29.0393L12.2683 29.0257L12.2674 29.0121C12.2581 28.8681 12.2467 28.7257 12.2361 28.5942L12.2357 28.5899C12.2259 28.4679 12.2168 28.3551 12.2093 28.2443V19.8627C12.21 19.8592 12.2108 19.8558 12.2115 19.8523C12.2258 19.7843 12.2503 19.6567 12.2525 19.5033C12.2783 18.5107 12.3298 17.6235 12.5372 16.7855C13.0067 14.9166 14.0499 13.622 15.7951 12.8635C16.7343 12.4582 17.7702 12.3191 18.9552 12.2691C19.2441 12.2596 19.5271 12.2332 19.7741 12.2093H28.1373C28.1408 12.21 28.1442 12.2108 28.1477 12.2115C28.2157 12.2258 28.3433 12.2503 28.4967 12.2525C29.4893 12.2783 30.3765 12.3298 31.2145 12.5372C33.0835 13.0068 34.3781 14.05 35.1366 15.7954C35.5419 16.7345 35.6809 17.7702 35.7309 18.9552C35.7404 19.244 35.7668 19.5271 35.7907 19.7741V28.1373C35.79 28.1408 35.7892 28.1442 35.7885 28.1477C35.7742 28.2157 35.7497 28.3433 35.7475 28.4967C35.7217 29.4894 35.6701 30.3768 35.4627 31.2149C34.9931 33.0836 33.9499 34.3781 32.2048 35.1366C31.2656 35.5418 30.2298 35.6809 29.0448 35.7309C28.756 35.7404 28.4729 35.7668 28.2259 35.7907H19.8627C19.8592 35.79 19.8558 35.7892 19.8523 35.7885C19.7843 35.7742 19.6567 35.7497 19.5033 35.7475C18.5106 35.7217 17.6232 35.6701 16.7851 35.4627C14.9165 34.9931 13.622 33.95 12.8635 32.205C12.4575 31.2643 12.3187 30.2267 12.2689 29.0393Z"
                     stroke="white"
-                    stroke-width="2.4186"
+                    strokeWidth="2.4186"
                 ></path>
                 <path
                     fillRule="evenodd"
@@ -356,10 +356,10 @@ export const loginModalIcon = {
                         gradientUnits="userSpaceOnUse"
                         gradientTransform="translate(13.6876 49.3889) rotate(-90) scale(43.6073 40.5582)"
                     >
-                        <stop stop-color="#FFDD55"></stop>
-                        <stop offset="0.1" stop-color="#FFDD55"></stop>
-                        <stop offset="0.5" stop-color="#FF543E"></stop>
-                        <stop offset="1" stop-color="#C837AB"></stop>
+                        <stop stopColor="#FFDD55"></stop>
+                        <stop offset="0.1" stopColor="#FFDD55"></stop>
+                        <stop offset="0.5" stopColor="#FF543E"></stop>
+                        <stop offset="1" stopColor="#C837AB"></stop>
                     </radialGradient>
                     <radialGradient
                         id="InstagramCircleColor_paint1_radial"
@@ -369,9 +369,9 @@ export const loginModalIcon = {
                         gradientUnits="userSpaceOnUse"
                         gradientTransform="translate(-5.37023 5.16969) rotate(78.6806) scale(19.4926 80.3494)"
                     >
-                        <stop stop-color="#3771C8"></stop>
-                        <stop offset="0.128" stop-color="#3771C8"></stop>
-                        <stop offset="1" stop-color="#6600FF" stop-opacity="0"></stop>
+                        <stop stopColor="#3771C8"></stop>
+                        <stop offset="0.128" stopColor="#3771C8"></stop>
+                        <stop offset="1" stopColor="#6600FF" stopOpacity="0"></stop>
                     </radialGradient>
                 </defs>
             </svg>
