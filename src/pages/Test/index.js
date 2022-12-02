@@ -51,7 +51,6 @@ const BASE_FILE = 'https://books.monsters.vn/files';
 
 function Test() {
     const inputRef = useRef();
-    const imgRef = useRef();
     const inputRefArea = useRef();
     const [imageURL, setImageURL] = useState('');
 
@@ -71,7 +70,6 @@ function Test() {
     const loadFile = function (file) {
         const reader = new FileReader();
         reader.onload = function () {
-            const output = imgRef.current;
             setImageURL(reader.result);
         };
         reader.readAsDataURL(file);
@@ -168,7 +166,6 @@ function Test() {
                         <img
                             className={cx('img')}
                             alt="img"
-                            ref={imgRef}
                             src={imageURL}
                             style={{ width: '100%', height: '100%' }}
                         ></img>

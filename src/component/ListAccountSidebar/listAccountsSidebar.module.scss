@@ -13,6 +13,14 @@
     }
 }
 
+.list-handle-btn {
+    cursor: pointer;
+    font-family: Proximanova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-size: 14px;
+    color: var(--primary);
+    margin-left: 12px;
+}
+
 .heading {
     color: rgba(22, 24, 35, 0.75);
     padding: 0 8px;

@@ -9,13 +9,15 @@ const cx = classNames.bind(styles);
 
 function LoginModalContainer() {
     const ModalAction = useContext(ModalContext);
+
     const handleRenderArr = (data) => {
         setRenderArr([...renderArr, data]);
     };
 
     const popRenderArr = () => {
-        setRenderArr((renderArr) => renderArr.splice(0, 1));
+        setRenderArr((renderArr) => renderArr.slice(0, -1));
     };
+
     const [renderArr, setRenderArr] = useState([<LoginMainMenu onClick={handleRenderArr} />]);
 
     return (
@@ -73,15 +75,16 @@ function LoginModalContainer() {
                 }}
             >
                 {renderArr[renderArr.length - 1]}
-                {/* <div className={cx('modal-footer')}>
-                    <span className={cx('modal-footer-title')}>Don’t have an account?</span>
-                    <div className={cx('modal-footer-link')}>Sign up</div>
-                </div> */}
 
                 <div className={cx('modal-footer')}>
-                    <span className={cx('modal-footer-title')}>Already have an account?</span>
-                    <div className={cx('modal-footer-link')}>Log in</div>
+                    <span className={cx('modal-footer-title')}>Don’t have an account?</span>
+                    <div className={cx('modal-footer-link')}>Sign up</div>
                 </div>
+
+                {/* <div className={cx('modal-footer')}>
+                        <span className={cx('modal-footer-title')}>Already have an account?</span>
+                        <div className={cx('modal-footer-link')}>Log in</div>
+                    </div> */}
             </Container>
         </>
     );

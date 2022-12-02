@@ -262,8 +262,8 @@
 }
 
 .permission-menu {
-    display: flex;
-    flex-direction: row;
+    display: flex !important;
+    flex-direction: row !important;
     .permission-item {
         display: inline-block;
     }

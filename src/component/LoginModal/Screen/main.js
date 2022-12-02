@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import styles from '../loginmodal.module.scss';
 import { Box, DialogTitle } from '@mui/material';
 import LoginQr from './loginQR';
+import LoginNormal from './loginNormal';
 
 const cx = classNames.bind(styles);
 
@@ -15,34 +16,42 @@ const LoginList = [
     {
         label: 'Use phone / email / username',
         icon: loginModalIcon.personalInfo.icon,
+        data: <LoginNormal />,
     },
     {
         label: 'Continue with Facebook',
         icon: loginModalIcon.facebook.icon,
+        disabled: true,
     },
     {
         label: 'Continue with Google',
         icon: loginModalIcon.google.icon,
+        disabled: true,
     },
     {
         label: 'Continue with Twitter',
         icon: loginModalIcon.twitter.icon,
+        disabled: true,
     },
     {
         label: 'Continue with LINE',
         icon: loginModalIcon.line.icon,
+        disabled: true,
     },
     {
         label: 'Continue with KakaoTalk',
         icon: loginModalIcon.kakaotalk.icon,
+        disabled: true,
     },
     {
         label: 'Continue with Apple',
         icon: loginModalIcon.apple.icon,
+        disabled: true,
     },
     {
         label: 'Continue with Instagram',
         icon: loginModalIcon.instagram.icon,
+        disabled: true,
     },
 ];
 function LoginMainMenu({ onClick }) {
@@ -65,7 +74,7 @@ function LoginMainMenu({ onClick }) {
             {LoginList.map((item, index) => {
                 return (
                     <Box
-                        className={cx('login-item')}
+                        className={cx('login-item', { disabled: item.disabled })}
                         onClick={
                             item.data
                                 ? () => {
