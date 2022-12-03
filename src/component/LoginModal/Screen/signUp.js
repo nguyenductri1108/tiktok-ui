@@ -1,22 +1,18 @@
 import { loginModalIcon } from '~/assets/iconSVG';
 import classNames from 'classnames/bind';
 import styles from '../loginmodal.module.scss';
-import { Box, DialogTitle } from '@mui/material';
-import LoginQr from './loginQR';
-import LoginNormal from './loginNormal';
-
+import { Box } from '@mui/system';
+import { DialogTitle } from '@mui/material';
+import SignUpNormal from './signUpNormal';
+import { useContext } from 'react';
+import { ModalContext } from '~/component/Context/ModalContext';
 const cx = classNames.bind(styles);
 
-const LoginList = [
+const SignUpList = [
     {
-        label: 'Use QR code',
-        icon: loginModalIcon.qrCode.icon,
-        data: <LoginQr />,
-    },
-    {
-        label: 'Use phone / email / username',
+        label: 'Use phone or email',
         icon: loginModalIcon.personalInfo.icon,
-        data: <LoginNormal />,
+        data: <SignUpNormal />,
     },
     {
         label: 'Continue with Facebook',
@@ -43,18 +39,11 @@ const LoginList = [
         icon: loginModalIcon.kakaotalk.icon,
         disabled: true,
     },
-    {
-        label: 'Continue with Apple',
-        icon: loginModalIcon.apple.icon,
-        disabled: true,
-    },
-    {
-        label: 'Continue with Instagram',
-        icon: loginModalIcon.instagram.icon,
-        disabled: true,
-    },
 ];
-function LoginMainMenu({ onClick }) {
+
+function SignUpMenu({ onClick }) {
+    const ModalAction = useContext(ModalContext);
+
     return (
         <div className={cx('login-menu')}>
             <DialogTitle
@@ -68,17 +57,17 @@ function LoginMainMenu({ onClick }) {
                 }}
                 className={cx('dialog-title')}
             >
-                Log in to TikTok
+                Sign up for TikTok
             </DialogTitle>
 
-            {LoginList.map((item, index) => {
+            {SignUpList.map((item, index) => {
                 return (
                     <Box
                         className={cx('login-item', { disabled: item.disabled })}
                         onClick={
                             item.data
                                 ? () => {
-                                      onClick(item.data, false);
+                                      onClick(item.data);
                                   }
                                 : () => {}
                         }
@@ -93,4 +82,4 @@ function LoginMainMenu({ onClick }) {
     );
 }
 
-export default LoginMainMenu;
+export default SignUpMenu;

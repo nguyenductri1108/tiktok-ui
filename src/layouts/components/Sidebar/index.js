@@ -13,33 +13,6 @@ const cx = classNames.bind(styles);
 
 const loggedIn = false;
 
-const SuggestedAccount = [
-    {
-        nickname: 'tri',
-        avatar: 'dsa',
-        tick: true,
-        full_name: 'trind',
-    },
-    {
-        nickname: 'tri',
-        avatar: 'dsa',
-        tick: true,
-        full_name: 'trind',
-    },
-    {
-        nickname: 'tri',
-        avatar: 'dsa',
-        tick: true,
-        full_name: 'trind',
-    },
-    {
-        nickname: 'tri',
-        avatar: 'dsa',
-        tick: true,
-        full_name: 'trind',
-    },
-];
-
 const FollowingAccount = [
     {
         nickname: 'tri',
@@ -138,7 +111,7 @@ function Sidebar() {
 
                 {!loggedIn && <LoginRec></LoginRec>}
 
-                <ListAccountsSidebar heading="Suggested Account" data={SuggestedAccount} />
+                <ListAccountsSidebar heading="Suggested Account" />
 
                 {loggedIn && <ListAccountsSidebar heading="Following" data={FollowingAccount} />}
 

@@ -4,6 +4,7 @@ import { useContext, useState } from 'react';
 import { ModalContext } from '../Context/ModalContext';
 import styles from './loginmodal.module.scss';
 import LoginMainMenu from './Screen/main';
+import SignUpMenu from './Screen/signUp';
 
 const cx = classNames.bind(styles);
 
@@ -18,6 +19,11 @@ function LoginModalContainer() {
         setRenderArr((renderArr) => renderArr.slice(0, -1));
     };
 
+    const resetRenderArr = () => {
+        ModalContext.offsignup();
+        setRenderArr((renderArr) => renderArr.slice(0, 1));
+    };
+
     const [renderArr, setRenderArr] = useState([<LoginMainMenu onClick={handleRenderArr} />]);
 
     return (
@@ -26,7 +32,7 @@ function LoginModalContainer() {
                 className={cx('cancel-icon')}
                 onClick={() => {
                     ModalAction.close();
-                    popRenderArr();
+                    resetRenderArr();
                 }}
             >
                 <svg
@@ -45,7 +51,13 @@ function LoginModalContainer() {
             </span>
 
             {renderArr.length > 1 && (
-                <span onClick={popRenderArr} className={cx('back-icon')}>
+                <span
+                    onClick={() => {
+                        popRenderArr();
+                        if (renderArr.length < 3) ModalAction.offsignup();
+                    }}
+                    className={cx('back-icon')}
+                >
                     <svg
                         className="tiktok-1i5fgpz-StyledChevronLeftOffset eg439om1"
                         width="1em"
@@ -76,15 +88,24 @@ function LoginModalContainer() {
             >
                 {renderArr[renderArr.length - 1]}
 
-                <div className={cx('modal-footer')}>
-                    <span className={cx('modal-footer-title')}>Don’t have an account?</span>
-                    <div className={cx('modal-footer-link')}>Sign up</div>
-                </div>
-
-                {/* <div className={cx('modal-footer')}>
+                {ModalAction.data.signingUp ? (
+                    <div className={cx('modal-footer')}>
                         <span className={cx('modal-footer-title')}>Already have an account?</span>
                         <div className={cx('modal-footer-link')}>Log in</div>
-                    </div> */}
+                    </div>
+                ) : (
+                    <div className={cx('modal-footer')}>
+                        <span className={cx('modal-footer-title')}>Don’t have an account?</span>
+                        <div
+                            onClick={() => {
+                                handleRenderArr(<SignUpMenu onClick={handleRenderArr} />);
+                            }}
+                            className={cx('modal-footer-link')}
+                        >
+                            Sign up
+                        </div>
+                    </div>
+                )}
             </Container>
         </>
     );
