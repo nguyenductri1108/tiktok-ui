@@ -4,6 +4,8 @@ import styles from '../loginmodal.module.scss';
 import { Box, DialogTitle } from '@mui/material';
 import LoginQr from './loginQR';
 import LoginNormal from './loginNormal';
+import { useContext, useEffect } from 'react';
+import { ModalContext } from '~/component/Context/ModalContext';
 
 const cx = classNames.bind(styles);
 
@@ -54,7 +56,14 @@ const LoginList = [
         disabled: true,
     },
 ];
-function LoginMainMenu({ onClick }) {
+function LoginMainMenu({ renderArr, onClick }) {
+    const ModalAction = useContext(ModalContext);
+
+    useEffect(() => {
+        console.log('abc');
+        ModalAction.offsignup();
+    }, [renderArr]);
+
     return (
         <div className={cx('login-menu')}>
             <DialogTitle

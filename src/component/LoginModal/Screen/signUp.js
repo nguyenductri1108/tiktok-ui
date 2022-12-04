@@ -4,7 +4,7 @@ import styles from '../loginmodal.module.scss';
 import { Box } from '@mui/system';
 import { DialogTitle } from '@mui/material';
 import SignUpNormal from './signUpNormal';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { ModalContext } from '~/component/Context/ModalContext';
 const cx = classNames.bind(styles);
 
@@ -41,8 +41,13 @@ const SignUpList = [
     },
 ];
 
-function SignUpMenu({ onClick }) {
+function SignUpMenu({ renderArr, onClick }) {
     const ModalAction = useContext(ModalContext);
+
+    useEffect(() => {
+        console.log('abc');
+        ModalAction.onsignup();
+    }, [renderArr]);
 
     return (
         <div className={cx('login-menu')}>

@@ -24,7 +24,7 @@ function LoginModalContainer() {
         setRenderArr((renderArr) => renderArr.slice(0, 1));
     };
 
-    const [renderArr, setRenderArr] = useState([<LoginMainMenu onClick={handleRenderArr} />]);
+    const [renderArr, setRenderArr] = useState([<LoginMainMenu renderArr={renderArr} onClick={handleRenderArr} />]);
 
     return (
         <>
@@ -98,7 +98,7 @@ function LoginModalContainer() {
                         <span className={cx('modal-footer-title')}>Don’t have an account?</span>
                         <div
                             onClick={() => {
-                                handleRenderArr(<SignUpMenu onClick={handleRenderArr} />);
+                                handleRenderArr(<SignUpMenu renderArr={renderArr} onClick={handleRenderArr} />);
                             }}
                             className={cx('modal-footer-link')}
                         >
