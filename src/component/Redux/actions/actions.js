@@ -1,13 +1,18 @@
-export const Increase = (state) =>{
-    return{
-        type: 'INCREASE',
-        payload: state
-    }
-}
+export const actionNames = {
+    INCREASE: 'INCREASE',
+    DECREASE: 'DECREASE',
+};
 
-export const Decrease = (state) =>{
-    return{
+export const Increase = (state) => {
+    return {
+        type: 'INCREASE',
+        payload: state,
+    };
+};
+
+export const Decrease = (state) => {
+    return {
         type: 'DECREASE',
-        payload: state
-    }   
-}
+        payload: state,
+    };
+};

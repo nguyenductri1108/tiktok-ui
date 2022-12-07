@@ -23,6 +23,9 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CloseIcon from '@mui/icons-material/Close';
 
+const redux = require('redux')
+const createStore = redux.createStore
+
 const cx = classNames.bind(styles);
 
 const { Dragger } = Upload;
@@ -55,6 +58,8 @@ function Test() {
     const [imageURL, setImageURL] = useState('');
 
     const [open, setOpen] = useState(false);
+
+    const store = createStore
 
     console.log(imageURL);
     localStorage.setItem(
@@ -210,6 +215,9 @@ function Test() {
                     <DialogTitle className={cx('dialog-title')}>Log in to TikTok</DialogTitle>
                 </Container>
             </Dialog>
+
+            <button onClick={}></button>
+            <h2></h2>
         </div>
     );
 }
