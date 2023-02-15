@@ -16,7 +16,7 @@ import images from '~/assets/images';
 
 import Tippy from '@tippyjs/react';
 
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import Button from '~/component/Button';
 import tippy, { roundArrow } from 'tippy.js';
@@ -32,10 +32,11 @@ import { Link, Navigate } from 'react-router-dom';
 import config from '~/config';
 import LoginModal from '~/component/LoginModal';
 import { ModalContext } from '~/component/Context/ModalContext';
+import { AxiosGet } from '~/service/nextGenSearchService';
 
 const cx = classNames.bind(styles);
 
-const currentUser = false;
+const currentUser = true;
 
 const MENU_ITEM = [
     {
@@ -106,6 +107,12 @@ const userMenu = [
 function Header({ className }) {
     const ModalAction = useContext(ModalContext);
 
+    useEffect(() => {
+        if (localStorage.getItem('bearer_token')) {
+            const reuslt = AxiosGet({}, 'api/auth/me', true);
+        }
+    }, []);
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner', className)}>
@@ -160,7 +167,7 @@ function Header({ className }) {
                         {currentUser ? (
                             <CustomAvatar
                                 className={cx('more-btn')}
-                                sx={{ width: '32px', height: '32px', marginLeft: '2 .5px', cursor: 'pointer' }}
+                                sx={{ width: '32px', height: '32px', marginLeft: '25px', cursor: 'pointer' }}
                                 src="https://p16-sign-va.tiktokcdn.comm/musically-maliva-obj/16532728369510 .56~c5_100x100.jpeg?x-expires=1666789200&x-signature=2B7uOSc17cDMXlkBli%2FPNR3SsPs%3D"
                             />
                         ) : (

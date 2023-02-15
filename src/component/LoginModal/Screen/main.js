@@ -56,13 +56,13 @@ const LoginList = [
         disabled: true,
     },
 ];
-function LoginMainMenu({ renderArr, onClick }) {
+function LoginMainMenu({ onClick }) {
     const ModalAction = useContext(ModalContext);
 
-    useEffect(() => {
-        console.log('abc');
-        ModalAction.offsignup();
-    }, [renderArr]);
+    // useEffect(() => {
+    //     console.log('abc');
+    //     ModalAction.offsignup();
+    // }, []);
 
     return (
         <div className={cx('login-menu')}>

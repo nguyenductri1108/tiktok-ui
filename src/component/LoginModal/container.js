@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
 import classNames from 'classnames/bind';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ModalContext } from '../Context/ModalContext';
 import styles from './loginmodal.module.scss';
 import LoginMainMenu from './Screen/main';
@@ -24,7 +24,7 @@ function LoginModalContainer() {
         setRenderArr((renderArr) => renderArr.slice(0, 1));
     };
 
-    const [renderArr, setRenderArr] = useState([<LoginMainMenu renderArr={renderArr} onClick={handleRenderArr} />]);
+    const [renderArr, setRenderArr] = useState([<LoginMainMenu onClick={handleRenderArr} />]);
 
     return (
         <>
