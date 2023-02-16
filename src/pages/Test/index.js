@@ -23,8 +23,8 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CloseIcon from '@mui/icons-material/Close';
 
-const redux = require('redux')
-const createStore = redux.createStore
+const redux = require('redux');
+const createStore = redux.createStore;
 
 const cx = classNames.bind(styles);
 
@@ -59,7 +59,7 @@ function Test() {
 
     const [open, setOpen] = useState(false);
 
-    const store = createStore
+    const store = createStore;
 
     console.log(imageURL);
     localStorage.setItem(
@@ -216,7 +216,6 @@ function Test() {
                 </Container>
             </Dialog>
 
-            <button onClick={}></button>
             <h2></h2>
         </div>
     );

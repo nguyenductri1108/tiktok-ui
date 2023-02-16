@@ -15,10 +15,11 @@ const SkeletonList = [
     <Account loading={true} />,
 ];
 
-function  ListAccountsSidebar({ heading }) {
+function ListAccountsSidebar({ heading }) {
     const [loading, setLoading] = useState(false);
     const [shortList, setShortList] = useState(true);
     const [data, setData] = useState([]);
+
     const getData = async () => {
         setLoading(true);
         const response = await AxiosGet(

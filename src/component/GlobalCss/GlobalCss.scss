@@ -9,7 +9,8 @@
     --black: #000;
     --white: #fff;
     --text-color: #333;
-    --font-family: 'ProximaNova', sans-serif;
+    --font-family: 'ProximaNova', Arial, Tahoma, PingFangSC, sans-serif;
+    --font-family-2: 'SofiaPro', Arial, Tahoma, PingFangSC, sans-serif;
     --sidebar-height: 356px;
 }
 
@@ -92,6 +93,8 @@ a {
 
 //custom tippy tooltips
 body {
+    // font-family: var(--font-family);
+
     .tippy-box {
         background-color: rgb(84 84 84 / 92%);
         border-radius: 8px;
